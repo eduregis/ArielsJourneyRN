@@ -3,28 +3,41 @@ import {
   ImageBackground,
   View,
   Text,
+  Image,
   Pressable,
 } from "react-native";
 import React from "react";
 import { Colors } from "../constants/colors";
+import { ARCHETYPES } from "../models/archetypes";
 
-function ArchetypeCard({ title, image, active, number, exhibition, onPress }) {
+function ArchetypeCard({ cardId, active, exhibition, onPress }) {
   var backgroungImageSource = require("../assets/ui/Ariel_arrow_middle_heros_journey.png");
+  var card = ARCHETYPES[cardId];
 
   if (exhibition) {
     backgroungImageSource = null;
   }
 
-  var card = (
-    <View style={styles.container}>
+  var cardContent = (
+    <ImageBackground
+      source={require("../assets/ui/Ariel_heros_journey_card_empty.png")}
+      resizeMode="contain"
+      style={styles.container}
+    >
       <View style={styles.emptySymbolContainer}>
-        <Text style={styles.emptySymbol}>{number}</Text>
+        <View style={styles.emptySymbolContent}>
+          <Image
+            style={styles.emptySymbol}
+            source={card.emptyIcon}
+            resizeMode="contain"
+          />
+        </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 
-  if (active) {
-    card = (
+  if (active && cardId != null) {
+    cardContent = (
       <Pressable
         style={({ pressed }) => [pressed && styles.pressed]}
         onPress={onPress}
@@ -36,24 +49,28 @@ function ArchetypeCard({ title, image, active, number, exhibition, onPress }) {
         >
           <View style={styles.imageContainer}>
             <ImageBackground
-              source={image}
+              source={card.imageName}
               resizeMode="cover"
               style={styles.image}
             >
-              <View style={styles.numberContainer}>
-                <Text style={styles.number}>{number}</Text>
+              <View style={styles.symbolContainer}>
+                <Image
+                  style={styles.symbol}
+                  source={card.fullIcon}
+                  resizeMode="contain"
+                />
               </View>
             </ImageBackground>
           </View>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{card.archetypeStage}</Text>
           </View>
         </ImageBackground>
       </Pressable>
     );
   }
 
-  return <>{card}</>;
+  return <>{cardContent}</>;
 }
 export default ArchetypeCard;
 
@@ -69,9 +86,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  emptySymbolNumber: {
+  emptySymbolContent: {
     width: 80,
     height: 80,
+    borderWidth: 1,
+    borderRadius: 40,
+    borderColor: Colors.primary500,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  emptySymbol: {
+    width: 45,
+    height: 45,
   },
   pressed: {
     opacity: 0.7,
@@ -87,7 +113,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     overflow: "hidden",
   },
-  numberContainer: {
+  symbolContainer: {
     width: 24,
     height: 24,
     backgroundColor: Colors.primary500,
@@ -98,11 +124,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  number: {
-    color: Colors.background600,
-    fontSize: 13,
-    fontFamily: "macondo-regular",
-    textAlign: "center",
+  symbol: {
+    width: 16,
+    height: 16,
   },
   imageContainer: {
     width: 105,

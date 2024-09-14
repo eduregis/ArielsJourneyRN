@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect } from "react";
-import HerosJourneyCard from "../components/HerosJourneyCard";
-import { HEROS_JOURNEY } from "../models/herosJourney";
+import { ARCHETYPES } from "../models/archetypes";
 import { Colors } from "../constants/colors";
+import ArchetypeCard from "../components/ArchetypeCard";
 
-function HerosJourneyDetailsSheet({ index }) {
-  var card = HEROS_JOURNEY[index];
+function ArchetypesDetailsSheet({ index }) {
+  var card = ARCHETYPES[index];
 
   useEffect(() => {
     console.log(index);
@@ -16,10 +16,8 @@ function HerosJourneyDetailsSheet({ index }) {
 
   if (index != null) {
     selectedCardImage = (
-      <HerosJourneyCard
-        title={card.herosJourneysStage}
-        image={card.imageName}
-        number={index}
+      <ArchetypeCard
+        cardId={index}
         active={true}
         pressable={false}
         exhibition={true}
@@ -30,7 +28,7 @@ function HerosJourneyDetailsSheet({ index }) {
   if (index != null) {
     selectedCardDescription = (
       <View>
-        <Text style={styles.title}>{card.herosJourneysStage}</Text>
+        <Text style={styles.title}>{card.archetypeStage}</Text>
         <View style={styles.adornmentsContainer}>
           <Image
             style={styles.adornments}
@@ -58,7 +56,7 @@ function HerosJourneyDetailsSheet({ index }) {
   );
 }
 
-export default HerosJourneyDetailsSheet;
+export default ArchetypesDetailsSheet;
 
 const styles = StyleSheet.create({
   container: {

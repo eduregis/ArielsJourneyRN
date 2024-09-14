@@ -7,7 +7,7 @@ import BottomSheet, {
   BottomSheetView,
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
-import DetailsSheet from "../sheets/HerosJourneyDetails";
+import HerosJourneyDetailsSheet from "../sheets/HerosJourneyDetails";
 import { Colors } from "../constants/colors";
 import { HEROS_JOURNEY } from "../models/herosJourney";
 
@@ -96,7 +96,7 @@ function HerosJourney({ navigation }) {
           backdropComponent={renderBackdrop}
         >
           <BottomSheetView style={styles.sheetContainer}>
-            <DetailsSheet index={selectedCardIndex} />
+            <HerosJourneyDetailsSheet index={selectedCardIndex} />
           </BottomSheetView>
         </BottomSheet>
       </GestureHandlerRootView>

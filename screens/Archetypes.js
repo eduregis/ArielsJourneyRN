@@ -7,7 +7,7 @@ import BottomSheet, {
   BottomSheetView,
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
-import DetailsSheet from "../sheets/HerosJourneyDetails";
+import ArchetypesDetailsSheet from "../sheets/ArchetypeDetails";
 import { Colors } from "../constants/colors";
 import { ARCHETYPES } from "../models/archetypes";
 
@@ -57,10 +57,8 @@ function ArchetypesScreen({ navigation }) {
             {data.map((item, cardIndex) => {
               return (
                 <ArchetypeCard
-                  title={item.archetypeStage}
-                  image={item.imageName}
+                  cardId={cardIndex}
                   active={cardIndex < 2}
-                  number={cardIndex}
                   onPress={() => {
                     showDetail(cardIndex);
                   }}
@@ -82,7 +80,7 @@ function ArchetypesScreen({ navigation }) {
           backdropComponent={renderBackdrop}
         >
           <BottomSheetView style={styles.sheetContainer}>
-            <DetailsSheet index={selectedCardIndex} />
+            <ArchetypesDetailsSheet index={selectedCardIndex} />
           </BottomSheetView>
         </BottomSheet>
       </GestureHandlerRootView>
