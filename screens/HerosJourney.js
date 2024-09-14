@@ -7,7 +7,7 @@ import BottomSheet, {
   BottomSheetView,
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
-import DetailsSheet from "./Details";
+import DetailsSheet from "../sheets/HerosJourneyDetails";
 import { Colors } from "../constants/colors";
 import { HEROS_JOURNEY } from "../models/herosJourney";
 
