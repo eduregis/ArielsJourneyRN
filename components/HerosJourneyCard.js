@@ -8,7 +8,14 @@ import {
 import React from "react";
 import { Colors } from "../constants/colors";
 
-function HerosJourneyCard({ title, active, number, exhibition, onPress }) {
+function HerosJourneyCard({
+  title,
+  image,
+  active,
+  number,
+  exhibition,
+  onPress,
+}) {
   var backgroungImageSource = require("../assets/ui/Ariel_arrow_middle_heros_journey.png");
 
   if (exhibition) {
@@ -40,7 +47,7 @@ function HerosJourneyCard({ title, active, number, exhibition, onPress }) {
         >
           <View style={styles.imageContainer}>
             <ImageBackground
-              source={require("../assets/images/herosJourneyCards/Ariel_heros_journey_01.png")}
+              source={image}
               resizeMode="cover"
               style={styles.image}
             >

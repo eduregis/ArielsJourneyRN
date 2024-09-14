@@ -67,6 +67,7 @@ function HerosJourney({ navigation }) {
               return (
                 <HerosJourneyCard
                   title={item.herosJourneysStage}
+                  image={item.imageName}
                   active={cardIndex < 2}
                   number={cardIndex}
                   onPress={() => {

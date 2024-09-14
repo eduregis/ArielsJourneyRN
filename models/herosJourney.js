@@ -11,62 +11,62 @@ export default HerosJourney;
 export const HEROS_JOURNEY = [
   new HerosJourney(
     "Mundo normal",
-    "herosJourneyCard_01",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Chamado para a aventura",
-    "herosJourneyCard_02",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Recusa do chamado",
-    "herosJourneyCard_03",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Conhecendo o Mentor",
-    "herosJourneyCard_04",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Cruzando o Limiar",
-    "herosJourneyCard_05",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Testes, Aliados, Inimigos",
-    "herosJourneyCard_06",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Aproximação à Caverna Oculta",
-    "herosJourneyCard_07",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Provação",
-    "herosJourneyCard_08",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Recompensa (Agarrar a Espada)",
-    "herosJourneyCard_09",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "O caminho de volta",
-    "herosJourneyCard_10",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Ressurreição",
-    "herosJourneyCard_11",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
   new HerosJourney(
     "Retorno com o Elixir",
-    "herosJourneyCard_12",
+    require("../assets/images/herosJourneyCards/herosJourneyCard_01.png"),
     "Lorem ipsum World sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comodo consequat."
   ),
 ];

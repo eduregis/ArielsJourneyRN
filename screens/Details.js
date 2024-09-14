@@ -18,6 +18,7 @@ function DetailsSheet({ index }) {
     selectedCardImage = (
       <HerosJourneyCard
         title={card.herosJourneysStage}
+        image={card.imageName}
         number={index}
         active={true}
         pressable={false}
