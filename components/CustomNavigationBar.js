@@ -8,12 +8,18 @@ import {
 } from "react-native";
 import { Colors } from "../constants/colors";
 
-function CustomNavigationBar({ title, hideBackButton, backHandler }) {
+function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
   function settingsNavigateHandler() {}
+
+  var navigationBkg = require("../assets/ui/Ariel_navigation_bar.png");
+
+  if (hideBkg) {
+    navigationBkg = null;
+  }
 
   return (
     <ImageBackground
-      source={require("../assets/ui/Ariel_navigation_bar.png")}
+      source={navigationBkg}
       resizeMode="cover"
       style={styles.container}
     >
