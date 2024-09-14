@@ -17,9 +17,7 @@ function HerosJourneyDetailsSheet({ index }) {
   if (index != null) {
     selectedCardImage = (
       <HerosJourneyCard
-        title={card.herosJourneysStage}
-        image={card.imageName}
-        number={index}
+        cardId={index}
         active={true}
         pressable={false}
         exhibition={true}

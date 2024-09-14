@@ -7,35 +7,30 @@ import {
 } from "react-native";
 import React from "react";
 import { Colors } from "../constants/colors";
+import { HEROS_JOURNEY } from "../models/herosJourney";
 
-function HerosJourneyCard({
-  title,
-  image,
-  active,
-  number,
-  exhibition,
-  onPress,
-}) {
+function HerosJourneyCard({ cardId, active, exhibition, onPress }) {
   var backgroungImageSource = require("../assets/ui/Ariel_arrow_middle_heros_journey.png");
+  var card = HEROS_JOURNEY[cardId];
 
   if (exhibition) {
     backgroungImageSource = null;
   }
 
-  var card = (
+  var cardContent = (
     <ImageBackground
       source={require("../assets/ui/Ariel_heros_journey_card_empty.png")}
       resizeMode="contain"
       style={styles.container}
     >
       <View style={styles.arrowMiddleNumberContainer}>
-        <Text style={styles.arrowMiddleNumber}>{number}</Text>
+        <Text style={styles.arrowMiddleNumber}>{cardId}</Text>
       </View>
     </ImageBackground>
   );
 
   if (active) {
-    card = (
+    cardContent = (
       <Pressable
         style={({ pressed }) => [pressed && styles.pressed]}
         onPress={onPress}
@@ -47,17 +42,17 @@ function HerosJourneyCard({
         >
           <View style={styles.imageContainer}>
             <ImageBackground
-              source={image}
+              source={card.imageName}
               resizeMode="cover"
               style={styles.image}
             >
               <View style={styles.numberContainer}>
-                <Text style={styles.number}>{number}</Text>
+                <Text style={styles.number}>{cardId}</Text>
               </View>
             </ImageBackground>
           </View>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{card.herosJourneysStage}</Text>
           </View>
         </ImageBackground>
       </Pressable>
@@ -71,7 +66,7 @@ function HerosJourneyCard({
         resizeMode="contain"
         style={styles.arrowMiddle}
       >
-        {card}
+        {cardContent}
       </ImageBackground>
     </>
   );

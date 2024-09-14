@@ -93,7 +93,7 @@ export default ArchetypesScreen;
 const styles = StyleSheet.create({
   menuContainer: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 35,
     paddingHorizontal: 40,
     alignItems: "center",
     justifyContent: "center",

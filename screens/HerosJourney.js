@@ -66,10 +66,8 @@ function HerosJourney({ navigation }) {
             {data.map((item, cardIndex) => {
               return (
                 <HerosJourneyCard
-                  title={item.herosJourneysStage}
-                  image={item.imageName}
+                  cardId={cardIndex}
                   active={cardIndex < 2}
-                  number={cardIndex}
                   onPress={() => {
                     showDetail(cardIndex);
                   }}
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 35,
     paddingHorizontal: 40,
     alignItems: "center",
     justifyContent: "center",
