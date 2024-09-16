@@ -1,8 +1,13 @@
 import { ImageBackground, StyleSheet, View, Image } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
+import { useState } from "react";
+import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
 
 function Gameplay({ navigation }) {
+  const data = GAMEPLAY_DIALOGUES;
+  const [actualDialogueId, setActualDialogueId] = useState(0);
+
   function backToMenu() {
     navigation.navigate("Menu");
   }
@@ -16,7 +21,10 @@ function Gameplay({ navigation }) {
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
         <View style={styles.gameplayContainer}>
           <View style={styles.cardContainer}>
-            <GameplayCard />
+            <GameplayCard
+              image={data[actualDialogueId].firstCardImageName}
+              text={data[actualDialogueId].firstCardText}
+            />
           </View>
           <View style={styles.letterContainer}>
             <Image
@@ -26,7 +34,10 @@ function Gameplay({ navigation }) {
             />
           </View>
           <View style={styles.cardContainer}>
-            <GameplayCard />
+            <GameplayCard
+              image={data[actualDialogueId].secondCardImageName}
+              text={data[actualDialogueId].secondCardText}
+            />
           </View>
         </View>
       </ImageBackground>
