@@ -1,5 +1,6 @@
 import { ImageBackground, StyleSheet, View, Image } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
+import GameplayCard from "../components/GameplayCard";
 
 function Gameplay({ navigation }) {
   function backToMenu() {
@@ -15,11 +16,7 @@ function Gameplay({ navigation }) {
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
         <View style={styles.gameplayContainer}>
           <View style={styles.cardContainer}>
-            <Image
-              style={[styles.card, styles.shadowContent]}
-              source={require("../assets/ui/Ariel_choice_card.png")}
-              resizeMode="contain"
-            />
+            <GameplayCard />
           </View>
           <View style={styles.letterContainer}>
             <Image
@@ -29,11 +26,7 @@ function Gameplay({ navigation }) {
             />
           </View>
           <View style={styles.cardContainer}>
-            <Image
-              style={[styles.card, styles.shadowContent]}
-              source={require("../assets/ui/Ariel_choice_card.png")}
-              resizeMode="contain"
-            />
+            <GameplayCard />
           </View>
         </View>
       </ImageBackground>
@@ -55,10 +48,6 @@ const styles = StyleSheet.create({
     flex: 3,
     alignItems: "center",
     justifyContent: "center",
-  },
-  card: {
-    width: 168,
-    height: 300,
   },
   letterContainer: {
     flex: 3,
