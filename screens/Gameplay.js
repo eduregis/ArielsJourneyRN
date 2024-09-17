@@ -14,6 +14,7 @@ import WriteText from "../components/WriteText";
 function Gameplay({ navigation }) {
   // MARK: - Variables
   const data = GAMEPLAY_DIALOGUES;
+  const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
   const [actualDialogueId, setActualDialogueId] = useState(0);
@@ -52,6 +53,7 @@ function Gameplay({ navigation }) {
   }
 
   function flipCards() {
+    console.log(textIsComplete);
     if (!textIsComplete) {
       leftCardRef.current.flipCardHandler();
       rightCardRef.current.flipCardHandler();
@@ -89,12 +91,14 @@ function Gameplay({ navigation }) {
       setTextIsComplete(false);
       setCardIsSelected(false);
       showNextDialogue(nextDialogueId);
+      writeLetterRef.current.clearTextHandler();
     }, 500);
-    writeLetterRef.current.clearTextHandler();
   }
 
   function showNextDialogue(nextDialogueId) {
+    setShowDialogue(false);
     setTimeout(function () {
+      setShowDialogue(true);
       translateCards(1);
       setActualDialogueId(nextDialogueId);
     }, 500);
@@ -110,7 +114,11 @@ function Gameplay({ navigation }) {
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
 
         <Animated.View
-          style={[styles.gameplayContainer, translateAnimatedStyles]}
+          style={[
+            styles.gameplayContainer,
+            !showDialogue && styles.hidden,
+            translateAnimatedStyles,
+          ]}
         >
           <View style={styles.cardContainer}>
             <GameplayCard
@@ -156,6 +164,9 @@ const styles = StyleSheet.create({
   gameplayContainer: {
     flex: 1,
     flexDirection: "row",
+  },
+  hidden: {
+    opacity: 0,
   },
   cardContainer: {
     flex: 3,

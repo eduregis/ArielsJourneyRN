@@ -3,31 +3,30 @@ import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
 import { forwardRef, useImperativeHandle } from "react";
 
-function WriteText(props, ref) {
+function WriteText({ text, onPress }, ref) {
   // MARK: - Variables
   const [textArray, setTextArray] = useState([]);
   var [textIndex, setIndexState] = useState(-1);
 
   // MARK: - Functions
   useEffect(() => {
-    const splitedText = props.text.split(" ");
+    const splitedText = text.split(" ");
     setTextArray(splitedText);
 
     let interval = setInterval(() => {
       setIndexState((lastTimerCount) => {
         if (lastTimerCount == splitedText.length) {
           clearInterval(interval);
-          props.onPress();
         } else {
           return lastTimerCount + 1;
         }
       });
     }, 100);
-  }, [props.text]);
+  }, [text]);
 
-  function flipCardsHandler() {
+  function onPressHandler() {
     setIndexState(textArray.length);
-    props.onPress();
+    onPress();
   }
 
   useImperativeHandle(ref, () => ({
@@ -43,7 +42,7 @@ function WriteText(props, ref) {
 
   // MARK: - View
   return (
-    <Pressable onPress={flipCardsHandler}>
+    <Pressable onPress={onPressHandler}>
       <Text>
         {textArray.map((word, index) => {
           return (

@@ -70,8 +70,8 @@ export const GAMEPLAY_DIALOGUES = [
     "Pode crer,",
     require("../assets/images/gameplayCards/Ariel_card_001.png"),
     require("../assets/images/gameplayCards/Ariel_card_002.png"),
-    4,
-    4,
+    3,
+    3,
     "Mundo normal",
     "Ariel_soundEffect_sliderButtonReleased", // ativar som
     false,
@@ -85,8 +85,8 @@ export const GAMEPLAY_DIALOGUES = [
     "Pode crer,",
     require("../assets/images/gameplayCards/Ariel_card_001.png"),
     require("../assets/images/gameplayCards/Ariel_card_002.png"),
-    4,
-    4,
+    0,
+    1,
     "Mundo normal",
     "Ariel_soundEffect_sliderButtonReleased", // ativar som
     false,
