@@ -1,10 +1,4 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  View,
-  Text,
-  Pressable,
-} from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
@@ -20,9 +14,12 @@ import WriteText from "../components/WriteText";
 function Gameplay({ navigation }) {
   // MARK: - Variables
   const data = GAMEPLAY_DIALOGUES;
+  const [textIsComplete, setTextIsComplete] = useState(false);
+  const [cardIsSelected, setCardIsSelected] = useState(false);
   const [actualDialogueId, setActualDialogueId] = useState(0);
   const leftCardRef = useRef();
   const rightCardRef = useRef();
+  const writeLetterRef = useRef();
   const translate = useSharedValue(0);
 
   // MARK: - Animated Styles
@@ -55,16 +52,52 @@ function Gameplay({ navigation }) {
   }
 
   function flipCards() {
-    leftCardRef.current.flipCardHandler();
-    rightCardRef.current.flipCardHandler();
+    if (!textIsComplete) {
+      leftCardRef.current.flipCardHandler();
+      rightCardRef.current.flipCardHandler();
+      setTextIsComplete(true);
+    }
   }
 
   function selectLeftCard() {
-    rightCardRef.current.flipCardHandler();
+    if (textIsComplete && !cardIsSelected) {
+      rightCardRef.current.flipCardHandler();
+      setCardIsSelected(true);
+      setTimeout(function () {
+        translateCards(2);
+        setupNextDialogue(data[actualDialogueId].nextFirstDialogueId);
+        leftCardRef.current.flipCardHandler();
+      }, 500);
+    }
   }
 
   function selectRightCard() {
-    leftCardRef.current.flipCardHandler();
+    if (textIsComplete && !cardIsSelected) {
+      leftCardRef.current.flipCardHandler();
+      setCardIsSelected(true);
+      setTimeout(function () {
+        translateCards(2);
+        setupNextDialogue(data[actualDialogueId].nextSecondDialogueId);
+        rightCardRef.current.flipCardHandler();
+      }, 500);
+    }
+  }
+
+  function setupNextDialogue(nextDialogueId) {
+    setTimeout(function () {
+      translateCards(0);
+      setTextIsComplete(false);
+      setCardIsSelected(false);
+      showNextDialogue(nextDialogueId);
+    }, 500);
+    writeLetterRef.current.clearTextHandler();
+  }
+
+  function showNextDialogue(nextDialogueId) {
+    setTimeout(function () {
+      translateCards(1);
+      setActualDialogueId(nextDialogueId);
+    }, 500);
   }
 
   // MARK: - View
@@ -96,6 +129,7 @@ function Gameplay({ navigation }) {
               <WriteText
                 text={data[actualDialogueId].descriptionText}
                 onPress={flipCards}
+                ref={writeLetterRef}
               />
             </ImageBackground>
           </View>

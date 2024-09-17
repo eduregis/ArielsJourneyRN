@@ -1,31 +1,47 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
+import { forwardRef, useImperativeHandle } from "react";
 
-function WriteText({ text, onPress }) {
+function WriteText(props, ref) {
+  // MARK: - Variables
   const [textArray, setTextArray] = useState([]);
   var [textIndex, setIndexState] = useState(-1);
 
+  // MARK: - Functions
   useEffect(() => {
-    const splitedText = text.split(" ");
+    const splitedText = props.text.split(" ");
     setTextArray(splitedText);
 
     let interval = setInterval(() => {
       setIndexState((lastTimerCount) => {
         if (lastTimerCount == splitedText.length) {
           clearInterval(interval);
+          props.onPress();
         } else {
           return lastTimerCount + 1;
         }
       });
     }, 100);
-  }, [text]);
+  }, [props.text]);
 
   function flipCardsHandler() {
     setIndexState(textArray.length);
-    onPress();
+    props.onPress();
   }
 
+  useImperativeHandle(ref, () => ({
+    clearTextHandler: () => {
+      clearText();
+    },
+  }));
+
+  function clearText() {
+    setTextArray([]);
+    setIndexState(-1);
+  }
+
+  // MARK: - View
   return (
     <Pressable onPress={flipCardsHandler}>
       <Text>
@@ -44,7 +60,7 @@ function WriteText({ text, onPress }) {
   );
 }
 
-export default WriteText;
+export default forwardRef(WriteText);
 
 const styles = StyleSheet.create({
   text: {
