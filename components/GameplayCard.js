@@ -14,15 +14,16 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Colors } from "../constants/colors";
+import { forwardRef, useImperativeHandle } from "react";
 
-function GameplayCard({ image, text }) {
+function GameplayCard(props, ref) {
   const rotate = useSharedValue(0);
   const frontAnimatedStyles = useAnimatedStyle(() => {
     const rotateValue = interpolate(rotate.value, [0, 1], [0, 180]);
     return {
       transform: [
         {
-          rotateY: withTiming(`${rotateValue}deg`, { duration: 1000 }),
+          rotateY: withTiming(`${rotateValue}deg`, { duration: 700 }),
         },
       ],
     };
@@ -32,11 +33,17 @@ function GameplayCard({ image, text }) {
     return {
       transform: [
         {
-          rotateY: withTiming(`${rotateValue}deg`, { duration: 1000 }),
+          rotateY: withTiming(`${rotateValue}deg`, { duration: 700 }),
         },
       ],
     };
   });
+
+  useImperativeHandle(ref, () => ({
+    flipCardHandler: () => {
+      flipCard();
+    },
+  }));
 
   function flipCard() {
     rotate.value = rotate.value ? 0 : 1;
@@ -62,12 +69,12 @@ function GameplayCard({ image, text }) {
             imageStyle={{ borderRadius: 15 }}
           >
             <Image
-              source={image}
+              source={props.image}
               resizeMode="cover"
               style={styles.frontCardImage}
             />
             <View style={styles.titleContainer}>
-              <Text style={styles.title}>{text}</Text>
+              <Text style={styles.title}>{props.text}</Text>
             </View>
           </ImageBackground>
         </Pressable>
@@ -76,7 +83,7 @@ function GameplayCard({ image, text }) {
   );
 }
 
-export default GameplayCard;
+export default forwardRef(GameplayCard);
 
 const styles = StyleSheet.create({
   card: {

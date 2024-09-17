@@ -1,15 +1,29 @@
-import { ImageBackground, StyleSheet, View, Image } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+} from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
+import WriteText from "../components/WriteText";
 
 function Gameplay({ navigation }) {
   const data = GAMEPLAY_DIALOGUES;
   const [actualDialogueId, setActualDialogueId] = useState(0);
+  const leftCardRef = useRef();
+  const rightCardRef = useRef();
 
   function backToMenu() {
     navigation.navigate("Menu");
+  }
+
+  function flipCards() {
+    leftCardRef.current.flipCardHandler();
+    rightCardRef.current.flipCardHandler();
   }
 
   return (
@@ -24,19 +38,23 @@ function Gameplay({ navigation }) {
             <GameplayCard
               image={data[actualDialogueId].firstCardImageName}
               text={data[actualDialogueId].firstCardText}
+              ref={leftCardRef}
             />
           </View>
-          <View style={styles.letterContainer}>
-            <Image
+          <Pressable style={styles.letterContainer} onPress={flipCards}>
+            <ImageBackground
               style={[styles.letter, styles.shadowContent]}
               source={require("../assets/ui/Ariel_letter.png")}
               resizeMode="contain"
-            />
-          </View>
+            >
+              <WriteText text={data[actualDialogueId].descriptionText} />
+            </ImageBackground>
+          </Pressable>
           <View style={styles.cardContainer}>
             <GameplayCard
               image={data[actualDialogueId].secondCardImageName}
               text={data[actualDialogueId].secondCardText}
+              ref={rightCardRef}
             />
           </View>
         </View>
@@ -68,6 +86,7 @@ const styles = StyleSheet.create({
   letter: {
     width: 252,
     height: 290,
+    padding: 10,
   },
   shadowContent: {
     elevation: 4,
