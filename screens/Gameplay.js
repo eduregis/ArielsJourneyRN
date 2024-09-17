@@ -53,7 +53,6 @@ function Gameplay({ navigation }) {
   }
 
   function flipCards() {
-    console.log(textIsComplete);
     if (!textIsComplete) {
       leftCardRef.current.flipCardHandler();
       rightCardRef.current.flipCardHandler();

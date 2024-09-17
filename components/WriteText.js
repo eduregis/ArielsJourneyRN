@@ -12,21 +12,33 @@ function WriteText({ text, onPress }, ref) {
   useEffect(() => {
     const splitedText = text.split(" ");
     setTextArray(splitedText);
+    typingText(splitedText);
+  }, [text]);
 
+  function typingText(splitedText) {
     let interval = setInterval(() => {
       setIndexState((lastTimerCount) => {
         if (lastTimerCount == splitedText.length) {
+          flipCardsHandler();
           clearInterval(interval);
-        } else {
+        } else if (lastTimerCount < splitedText.length) {
           return lastTimerCount + 1;
+        } else {
+          clearInterval(interval);
         }
       });
     }, 100);
-  }, [text]);
+  }
 
   function onPressHandler() {
-    setIndexState(textArray.length);
+    setIndexState(textArray.length + 1);
     onPress();
+  }
+
+  function flipCardsHandler() {
+    setTimeout(function () {
+      onPress();
+    }, 100);
   }
 
   useImperativeHandle(ref, () => ({
