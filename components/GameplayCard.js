@@ -8,16 +8,22 @@ import {
   Pressable,
 } from "react-native";
 import Animated, {
+  Easing,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
+  withSequence,
   withTiming,
 } from "react-native-reanimated";
 import { Colors } from "../constants/colors";
 import { forwardRef, useImperativeHandle } from "react";
 
 function GameplayCard(props, ref) {
+  // MARK: - Variables
   const rotate = useSharedValue(0);
+  const scale = useSharedValue(0);
+
+  // MARK: - Animated Styles
   const frontAnimatedStyles = useAnimatedStyle(() => {
     const rotateValue = interpolate(rotate.value, [0, 1], [0, 180]);
     return {
@@ -28,6 +34,7 @@ function GameplayCard(props, ref) {
       ],
     };
   });
+
   const backAnimatedStyles = useAnimatedStyle(() => {
     const rotateValue = interpolate(rotate.value, [0, 1], [180, 360]);
     return {
@@ -39,6 +46,21 @@ function GameplayCard(props, ref) {
     };
   });
 
+  const scaleAnimatedStyles = useAnimatedStyle(() => {
+    const scaleValue = interpolate(scale.value, [0, 1], [1, 1.05]);
+    return {
+      transform: [
+        {
+          scale: withTiming(scaleValue, {
+            easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+            duration: 200,
+          }),
+        },
+      ],
+    };
+  });
+
+  // MARK: - Functions
   useImperativeHandle(ref, () => ({
     flipCardHandler: () => {
       flipCard();
@@ -49,12 +71,18 @@ function GameplayCard(props, ref) {
     rotate.value = rotate.value ? 0 : 1;
   }
 
-  function selectCard() {}
+  function selectCard() {
+    scale.value = withSequence(withTiming(1), withTiming(0));
+    setTimeout(function () {
+      props.selectHandler();
+    }, 500);
+  }
 
+  // MARK: - View
   return (
-    <View>
+    <Animated.View style={scaleAnimatedStyles}>
       <Animated.View style={[styles.frontCardContainer, frontAnimatedStyles]}>
-        <Pressable onPress={selectCard}>
+        <Pressable onPressIn={selectCard}>
           <Image
             style={[styles.card, styles.shadowContent]}
             source={require("../assets/ui/Ariel_choice_card_back.png")}
@@ -63,7 +91,7 @@ function GameplayCard(props, ref) {
         </Pressable>
       </Animated.View>
       <Animated.View style={[styles.backCardContainer, backAnimatedStyles]}>
-        <Pressable onPress={selectCard}>
+        <Pressable onPressIn={selectCard}>
           <ImageBackground
             source={require("../assets/ui/Ariel_choice_card_front_bkg.png")}
             resizeMode="cover"
@@ -81,7 +109,7 @@ function GameplayCard(props, ref) {
           </ImageBackground>
         </Pressable>
       </Animated.View>
-    </View>
+    </Animated.View>
   );
 }
 

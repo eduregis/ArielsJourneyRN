@@ -7,19 +7,51 @@ import {
 } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
-import Animated from "react-native-reanimated";
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import WriteText from "../components/WriteText";
 
 function Gameplay({ navigation }) {
+  // MARK: - Variables
   const data = GAMEPLAY_DIALOGUES;
   const [actualDialogueId, setActualDialogueId] = useState(0);
   const leftCardRef = useRef();
   const rightCardRef = useRef();
+  const translate = useSharedValue(0);
+
+  // MARK: - Animated Styles
+  const translateAnimatedStyles = useAnimatedStyle(() => {
+    const translateValue = interpolate(
+      translate.value,
+      [0, 1, 2],
+      [-500, 0, 500]
+    );
+    return {
+      transform: [
+        {
+          translateY: withTiming(translateValue, { duration: 500 }),
+        },
+      ],
+    };
+  });
+
+  // MARK: - Functions
+  useEffect(() => {
+    translateCards(1);
+  }, []);
 
   function backToMenu() {
     navigation.navigate("Menu");
+  }
+
+  function translateCards(animateIndex) {
+    translate.value = animateIndex;
   }
 
   function flipCards() {
@@ -27,6 +59,15 @@ function Gameplay({ navigation }) {
     rightCardRef.current.flipCardHandler();
   }
 
+  function selectLeftCard() {
+    rightCardRef.current.flipCardHandler();
+  }
+
+  function selectRightCard() {
+    leftCardRef.current.flipCardHandler();
+  }
+
+  // MARK: - View
   return (
     <>
       <ImageBackground
@@ -35,11 +76,14 @@ function Gameplay({ navigation }) {
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
 
-        <Animated.View style={styles.gameplayContainer}>
+        <Animated.View
+          style={[styles.gameplayContainer, translateAnimatedStyles]}
+        >
           <View style={styles.cardContainer}>
             <GameplayCard
               image={data[actualDialogueId].firstCardImageName}
               text={data[actualDialogueId].firstCardText}
+              selectHandler={selectLeftCard}
               ref={leftCardRef}
             />
           </View>
@@ -59,6 +103,7 @@ function Gameplay({ navigation }) {
             <GameplayCard
               image={data[actualDialogueId].secondCardImageName}
               text={data[actualDialogueId].secondCardText}
+              selectHandler={selectRightCard}
               ref={rightCardRef}
             />
           </View>
