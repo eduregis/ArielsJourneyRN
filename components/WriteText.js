@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
 
-function WriteText({ text }) {
+function WriteText({ text, onPress }) {
   const [textArray, setTextArray] = useState([]);
   var [textIndex, setIndexState] = useState(-1);
 
@@ -21,19 +21,26 @@ function WriteText({ text }) {
     }, 100);
   }, [text]);
 
+  function flipCardsHandler() {
+    setIndexState(textArray.length);
+    onPress();
+  }
+
   return (
-    <Text>
-      {textArray.map((word, index) => {
-        return (
-          <Text
-            key={index}
-            style={[styles.text, textIndex <= index && styles.hidden]}
-          >
-            {word + " "}
-          </Text>
-        );
-      })}
-    </Text>
+    <Pressable onPress={flipCardsHandler}>
+      <Text>
+        {textArray.map((word, index) => {
+          return (
+            <Text
+              key={index}
+              style={[styles.text, textIndex <= index && styles.hidden]}
+            >
+              {word + " "}
+            </Text>
+          );
+        })}
+      </Text>
+    </Pressable>
   );
 }
 

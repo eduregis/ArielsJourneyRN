@@ -49,10 +49,12 @@ function GameplayCard(props, ref) {
     rotate.value = rotate.value ? 0 : 1;
   }
 
+  function selectCard() {}
+
   return (
     <View>
       <Animated.View style={[styles.frontCardContainer, frontAnimatedStyles]}>
-        <Pressable onPress={flipCard}>
+        <Pressable onPress={selectCard}>
           <Image
             style={[styles.card, styles.shadowContent]}
             source={require("../assets/ui/Ariel_choice_card_back.png")}
@@ -61,7 +63,7 @@ function GameplayCard(props, ref) {
         </Pressable>
       </Animated.View>
       <Animated.View style={[styles.backCardContainer, backAnimatedStyles]}>
-        <Pressable onPress={flipCard}>
+        <Pressable onPress={selectCard}>
           <ImageBackground
             source={require("../assets/ui/Ariel_choice_card_front_bkg.png")}
             resizeMode="cover"

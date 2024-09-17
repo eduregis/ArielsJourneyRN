@@ -9,6 +9,7 @@ import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useRef, useState } from "react";
 import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
+import Animated from "react-native-reanimated";
 import WriteText from "../components/WriteText";
 
 function Gameplay({ navigation }) {
@@ -33,7 +34,8 @@ function Gameplay({ navigation }) {
         style={styles.container}
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
-        <View style={styles.gameplayContainer}>
+
+        <Animated.View style={styles.gameplayContainer}>
           <View style={styles.cardContainer}>
             <GameplayCard
               image={data[actualDialogueId].firstCardImageName}
@@ -41,15 +43,18 @@ function Gameplay({ navigation }) {
               ref={leftCardRef}
             />
           </View>
-          <Pressable style={styles.letterContainer} onPress={flipCards}>
+          <View style={styles.letterContainer}>
             <ImageBackground
               style={[styles.letter, styles.shadowContent]}
               source={require("../assets/ui/Ariel_letter.png")}
               resizeMode="contain"
             >
-              <WriteText text={data[actualDialogueId].descriptionText} />
+              <WriteText
+                text={data[actualDialogueId].descriptionText}
+                onPress={flipCards}
+              />
             </ImageBackground>
-          </Pressable>
+          </View>
           <View style={styles.cardContainer}>
             <GameplayCard
               image={data[actualDialogueId].secondCardImageName}
@@ -57,7 +62,7 @@ function Gameplay({ navigation }) {
               ref={rightCardRef}
             />
           </View>
-        </View>
+        </Animated.View>
       </ImageBackground>
     </>
   );
