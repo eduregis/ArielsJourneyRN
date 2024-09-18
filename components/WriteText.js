@@ -10,9 +10,11 @@ function WriteText({ text, coloredStrings, onPress }, ref) {
 
   // MARK: - Functions
   useEffect(() => {
-    const splitedText = text.split(" ");
-    setTextArray(splitedText);
-    typingText(splitedText);
+    setTimeout(function () {
+      const splitedText = text.split(" ");
+      setTextArray(splitedText);
+      typingText(splitedText);
+    }, 500);
   }, [text]);
 
   function typingText(splitedText) {
