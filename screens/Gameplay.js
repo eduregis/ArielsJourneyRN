@@ -41,7 +41,9 @@ function Gameplay({ navigation }) {
 
   // MARK: - Functions
   useEffect(() => {
-    translateCards(1);
+    setTimeout(function () {
+      translateCards(1);
+    }, 500);
   }, []);
 
   function backToMenu() {

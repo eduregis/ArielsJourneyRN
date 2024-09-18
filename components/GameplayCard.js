@@ -3,7 +3,6 @@ import {
   Image,
   View,
   ImageBackground,
-  Button,
   Text,
   Pressable,
 } from "react-native";
@@ -16,12 +15,14 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Colors } from "../constants/colors";
-import { forwardRef, useImperativeHandle } from "react";
+import { useRef, forwardRef, useImperativeHandle } from "react";
+import SoundManager from "../components/SoundManager";
 
 function GameplayCard(props, ref) {
   // MARK: - Variables
   const rotate = useSharedValue(0);
   const scale = useSharedValue(0);
+  const soundRef = useRef();
 
   // MARK: - Animated Styles
   const frontAnimatedStyles = useAnimatedStyle(() => {
@@ -72,6 +73,7 @@ function GameplayCard(props, ref) {
   }
 
   function selectCard() {
+    soundRef.current.playSoundOnceHandler();
     scale.value = withSequence(withTiming(1), withTiming(0));
     setTimeout(function () {
       props.selectHandler();
@@ -81,6 +83,10 @@ function GameplayCard(props, ref) {
   // MARK: - View
   return (
     <Animated.View style={scaleAnimatedStyles}>
+      <SoundManager
+        soundPath={require("../assets/sounds/Ariel_soundEffect_cardSideChoosen.mp3")}
+        ref={soundRef}
+      />
       <Animated.View style={[styles.frontCardContainer, frontAnimatedStyles]}>
         <Pressable onPressIn={selectCard}>
           <Image
