@@ -17,7 +17,7 @@ function Gameplay({ navigation }) {
   const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
-  const [actualDialogueId, setActualDialogueId] = useState(0);
+  const [actualDialogueId, setActualDialogueId] = useState(6); // Colocar id do dialogue inicial, colocar como 0
   const leftCardRef = useRef();
   const rightCardRef = useRef();
   const writeLetterRef = useRef();

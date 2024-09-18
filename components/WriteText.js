@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
 import { forwardRef, useImperativeHandle } from "react";
@@ -66,30 +66,35 @@ function WriteText({ text, coloredStrings, onPress }, ref) {
 
   // MARK: - View
   return (
-    <Pressable onPress={onPressHandler}>
-      <Text>
-        {textArray.map((word, index) => {
-          return (
-            <Text
-              key={index}
-              style={[
-                styles.text,
-                coloringString(index),
-                textIndex <= index && styles.hidden,
-              ]}
-            >
-              {word + " "}
-            </Text>
-          );
-        })}
-      </Text>
-    </Pressable>
+    <ScrollView>
+      <Pressable onPress={onPressHandler}>
+        <Text>
+          {textArray.map((word, index) => {
+            return (
+              <Text
+                key={index}
+                style={[
+                  styles.text,
+                  coloringString(index),
+                  textIndex <= index && styles.hidden,
+                ]}
+              >
+                {word + " "}
+              </Text>
+            );
+          })}
+        </Text>
+      </Pressable>
+    </ScrollView>
   );
 }
 
 export default forwardRef(WriteText);
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+  },
   text: {
     fontSize: 14,
     fontFamily: "macondo-regular",

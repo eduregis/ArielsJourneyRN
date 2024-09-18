@@ -1,10 +1,4 @@
-import {
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ImageBackground, Pressable, StyleSheet, Text } from "react-native";
 import { Colors } from "../constants/colors";
 
 function MenuCard({ title, menuHandler }) {
