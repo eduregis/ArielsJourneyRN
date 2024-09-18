@@ -1,3 +1,5 @@
+import { Colors } from "../constants/colors";
+
 class GameplayDialogue {
   constructor(
     dialogueId,
@@ -12,7 +14,8 @@ class GameplayDialogue {
     soundTrigger,
     soundLoop,
     achievementTrigger,
-    triggerArray
+    triggerArray,
+    coloredStrings
   ) {
     this.dialogueId = dialogueId;
     this.descriptionText = descriptionText;
@@ -27,6 +30,7 @@ class GameplayDialogue {
     this.soundLoop = soundLoop;
     this.achievementTrigger = achievementTrigger;
     this.triggerArray = triggerArray;
+    this.coloredStrings = coloredStrings;
   }
 }
 
@@ -46,7 +50,13 @@ export const GAMEPLAY_DIALOGUES = [
     null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
     false, // Se for um som que fique repetindo, deixar como true aqui
     null, // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
-    [] // Ativar diversos triggers, colocar o nome referente nesse array
+    [], // Ativar diversos triggers, colocar o nome referente nesse array
+    [
+      {
+        stringId: 4,
+        color: "red",
+      },
+    ]
   ),
   new GameplayDialogue(
     1,
@@ -61,7 +71,13 @@ export const GAMEPLAY_DIALOGUES = [
     "Ariel_soundEffect_sliderButtonReleased", // ativar som
     false,
     "prodigy", // caso chegar nesse Dialogue implique em ativar um achievement, é só colocar o nome do achievement nesse parâmetro.
-    ["duchbag+1"] // caso precise aumentar o indice de duchbag, só chamar esse parâmetro com "duchbag+1", o parâmetro assim como o achievementTrigger, é opcional.
+    ["duchbag+1"], // caso precise aumentar o indice de duchbag, só chamar esse parâmetro com "duchbag+1", o parâmetro assim como o achievementTrigger, é opcional.
+    [
+      {
+        stringId: 7,
+        color: "green",
+      },
+    ]
   ),
   new GameplayDialogue(
     2,
@@ -76,7 +92,8 @@ export const GAMEPLAY_DIALOGUES = [
     "Ariel_soundEffect_sliderButtonReleased", // ativar som
     false,
     null,
-    ["herosJourney_1"] // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Jornada do Herói, basta colocar "herosJourney_?", com ? sendo o índice do colecionável em questão.
+    ["herosJourney_1"], // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Jornada do Herói, basta colocar "herosJourney_?", com ? sendo o índice do colecionável em questão.
+    []
   ),
   new GameplayDialogue(
     3,
@@ -91,6 +108,7 @@ export const GAMEPLAY_DIALOGUES = [
     "Ariel_soundEffect_sliderButtonReleased", // ativar som
     false,
     null,
-    ["archetype_1"] // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
+    ["archetype_1"], // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
+    []
   ),
 ];

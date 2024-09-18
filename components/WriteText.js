@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
 import { forwardRef, useImperativeHandle } from "react";
 
-function WriteText({ text, onPress }, ref) {
+function WriteText({ text, coloredStrings, onPress }, ref) {
   // MARK: - Variables
   const [textArray, setTextArray] = useState([]);
   var [textIndex, setIndexState] = useState(-1);
@@ -52,6 +52,16 @@ function WriteText({ text, onPress }, ref) {
     setIndexState(-1);
   }
 
+  const coloringString = (index) => {
+    const element = coloredStrings.find(
+      (element) => element.stringId === index
+    );
+
+    return {
+      color: element ? element.color : Colors.background500,
+    };
+  };
+
   // MARK: - View
   return (
     <Pressable onPress={onPressHandler}>
@@ -60,7 +70,11 @@ function WriteText({ text, onPress }, ref) {
           return (
             <Text
               key={index}
-              style={[styles.text, textIndex <= index && styles.hidden]}
+              style={[
+                styles.text,
+                coloringString(index),
+                textIndex <= index && styles.hidden,
+              ]}
             >
               {word + " "}
             </Text>
@@ -75,10 +89,10 @@ export default forwardRef(WriteText);
 
 const styles = StyleSheet.create({
   text: {
-    color: Colors.background500,
     fontSize: 14,
     fontFamily: "macondo-regular",
   },
+
   hidden: {
     opacity: 0,
   },

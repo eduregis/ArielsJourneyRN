@@ -135,6 +135,7 @@ function Gameplay({ navigation }) {
             >
               <WriteText
                 text={data[actualDialogueId].descriptionText}
+                coloredStrings={data[actualDialogueId].coloredStrings}
                 onPress={flipCards}
                 ref={writeLetterRef}
               />
