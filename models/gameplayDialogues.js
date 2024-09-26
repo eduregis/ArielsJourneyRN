@@ -66,7 +66,7 @@ export const GAMEPLAY_DIALOGUES = [
     null,
     false,
     null,
-    [],
+    ["archetype_1"],
     []
   ),
   new GameplayDialogue(
@@ -82,7 +82,7 @@ export const GAMEPLAY_DIALOGUES = [
     null,
     false,
     null,
-    [],
+    ["herosJourney_1"],
     [
       {
         stringId: 7,

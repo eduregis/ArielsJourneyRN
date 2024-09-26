@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
+  max,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
@@ -111,7 +112,34 @@ function Gameplay({ navigation }) {
       translateCards(1);
       asyncStorageHook.setStorageHandler("@dialogue", nextDialogueId);
       setActualDialogueId(nextDialogueId);
+      getTriggerArrays(nextDialogueId);
     }, 500);
+  }
+
+  function getTriggerArrays(nextDialogueId) {
+    const dialogueTriggers = data[nextDialogueId].triggerArray;
+    dialogueTriggers.forEach(async (element) => {
+      const splitedString = element.split("_");
+      if (splitedString.length > 1) {
+        if (splitedString[0] == "archetype") {
+          const actualArchetype =
+            (await asyncStorageHook.getStorageHandler("@archetype")) ?? 0;
+          const newArchetype = Number(splitedString[1]);
+          const archetype =
+            actualArchetype < newArchetype ? newArchetype : actualArchetype;
+          asyncStorageHook.setStorageHandler("@archetype", archetype);
+        } else if (splitedString[0] == "herosJourney") {
+          const actualHerosJourney =
+            (await asyncStorageHook.getStorageHandler("@herosJourney")) ?? 0;
+          const newHerosJourney = Number(splitedString[1]);
+          const herosJourney =
+            actualHerosJourney < newHerosJourney
+              ? newHerosJourney
+              : actualHerosJourney;
+          asyncStorageHook.setStorageHandler("@herosJourney", herosJourney);
+        }
+      }
+    });
   }
 
   // MARK: - View

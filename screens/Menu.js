@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 
 function MenuScreen({ navigation }) {
   const [dialogue, setDialogue] = useState(0);
-  const [archetype, setArchetype] = useState(0);
-  const [herosJourney, setHerosJourney] = useState(0);
   const asyncStorageHook = useAsyncStorage();
 
   async function goToNewGame() {
@@ -34,14 +32,28 @@ function MenuScreen({ navigation }) {
   }
 
   async function getData() {
-    setDialogue(asyncStorageHook.getStorageHandler("@dialogue"));
-    setArchetype(asyncStorageHook.getStorageHandler("@archetype"));
-    setHerosJourney(asyncStorageHook.getStorageHandler("@herosJourney"));
+    setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
+
+    console.log(
+      "Dialogue: ",
+      await asyncStorageHook.getStorageHandler("@dialogue")
+    );
+    console.log(
+      "Archetypes: ",
+      await asyncStorageHook.getStorageHandler("@archetype")
+    );
+    console.log(
+      "Hero`s Journey: ",
+      await asyncStorageHook.getStorageHandler("@herosJourney")
+    );
   }
 
   useEffect(() => {
-    getData();
-  }, []);
+    const unsubscribe = navigation.addListener("focus", () => {
+      getData();
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <>
