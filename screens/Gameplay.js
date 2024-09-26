@@ -63,6 +63,13 @@ function Gameplay({ navigation }) {
     translate.value = animateIndex;
   }
 
+  function getDialogue(dialogueId) {
+    const dialogue = data.find(function (element) {
+      return element.dialogueId == dialogueId;
+    });
+    return dialogue;
+  }
+
   function flipCards() {
     if (!textIsComplete) {
       leftCardRef.current.flipCardHandler();
@@ -77,7 +84,7 @@ function Gameplay({ navigation }) {
       setCardIsSelected(true);
       setTimeout(function () {
         translateCards(2);
-        setupNextDialogue(data[actualDialogueId].nextFirstDialogueId);
+        setupNextDialogue(getDialogue(actualDialogueId).nextFirstDialogueId);
         leftCardRef.current.flipCardHandler();
       }, 500);
     }
@@ -89,7 +96,7 @@ function Gameplay({ navigation }) {
       setCardIsSelected(true);
       setTimeout(function () {
         translateCards(2);
-        setupNextDialogue(data[actualDialogueId].nextSecondDialogueId);
+        setupNextDialogue(getDialogue(actualDialogueId).nextSecondDialogueId);
         rightCardRef.current.flipCardHandler();
       }, 500);
     }
@@ -117,7 +124,7 @@ function Gameplay({ navigation }) {
   }
 
   function getTriggerArrays(nextDialogueId) {
-    const dialogueTriggers = data[nextDialogueId].triggerArray;
+    const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
     dialogueTriggers.forEach(async (element) => {
       const splitedString = element.split("_");
       if (splitedString.length > 1) {
@@ -157,8 +164,8 @@ function Gameplay({ navigation }) {
       >
         <View style={styles.cardContainer}>
           <GameplayCard
-            image={data[actualDialogueId].firstCardImageName}
-            text={data[actualDialogueId].firstCardText}
+            image={getDialogue(actualDialogueId).firstCardImageName}
+            text={getDialogue(actualDialogueId).firstCardText}
             selectHandler={selectLeftCard}
             ref={leftCardRef}
           />
@@ -170,8 +177,8 @@ function Gameplay({ navigation }) {
             resizeMode="contain"
           >
             <WriteText
-              text={data[actualDialogueId].descriptionText}
-              coloredStrings={data[actualDialogueId].coloredStrings}
+              text={getDialogue(actualDialogueId).descriptionText}
+              coloredStrings={getDialogue(actualDialogueId).coloredStrings}
               onPress={flipCards}
               ref={writeLetterRef}
             />
@@ -179,8 +186,8 @@ function Gameplay({ navigation }) {
         </View>
         <View style={styles.cardContainer}>
           <GameplayCard
-            image={data[actualDialogueId].secondCardImageName}
-            text={data[actualDialogueId].secondCardText}
+            image={getDialogue(actualDialogueId).secondCardImageName}
+            text={getDialogue(actualDialogueId).secondCardText}
             selectHandler={selectRightCard}
             ref={rightCardRef}
           />
