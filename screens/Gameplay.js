@@ -3,7 +3,9 @@ import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
+import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
+  max,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
@@ -17,7 +19,8 @@ function Gameplay({ navigation }) {
   const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
-  const [actualDialogueId, setActualDialogueId] = useState(6); // Colocar id do dialogue inicial, colocar como 0
+  const [actualDialogueId, setActualDialogueId] = useState(null); // Colocar id do dialogue inicial, colocar como 0
+  const asyncStorageHook = useAsyncStorage();
   const leftCardRef = useRef();
   const rightCardRef = useRef();
   const writeLetterRef = useRef();
@@ -41,10 +44,16 @@ function Gameplay({ navigation }) {
 
   // MARK: - Functions
   useEffect(() => {
+    setupInitial();
+  }, []);
+
+  async function setupInitial() {
+    const result = await asyncStorageHook.getStorageHandler("@dialogue");
+    setActualDialogueId(result);
     setTimeout(function () {
       translateCards(1);
     }, 500);
-  }, []);
+  }
 
   function backToMenu() {
     navigation.navigate("Menu");
@@ -52,6 +61,13 @@ function Gameplay({ navigation }) {
 
   function translateCards(animateIndex) {
     translate.value = animateIndex;
+  }
+
+  function getDialogue(dialogueId) {
+    const dialogue = data.find(function (element) {
+      return element.dialogueId == dialogueId;
+    });
+    return dialogue;
   }
 
   function flipCards() {
@@ -68,7 +84,7 @@ function Gameplay({ navigation }) {
       setCardIsSelected(true);
       setTimeout(function () {
         translateCards(2);
-        setupNextDialogue(data[actualDialogueId].nextFirstDialogueId);
+        setupNextDialogue(getDialogue(actualDialogueId).nextFirstDialogueId);
         leftCardRef.current.flipCardHandler();
       }, 500);
     }
@@ -80,7 +96,7 @@ function Gameplay({ navigation }) {
       setCardIsSelected(true);
       setTimeout(function () {
         translateCards(2);
-        setupNextDialogue(data[actualDialogueId].nextSecondDialogueId);
+        setupNextDialogue(getDialogue(actualDialogueId).nextSecondDialogueId);
         rightCardRef.current.flipCardHandler();
       }, 500);
     }
@@ -101,11 +117,85 @@ function Gameplay({ navigation }) {
     setTimeout(function () {
       setShowDialogue(true);
       translateCards(1);
+      asyncStorageHook.setStorageHandler("@dialogue", nextDialogueId);
       setActualDialogueId(nextDialogueId);
+      getTriggerArrays(nextDialogueId);
     }, 500);
   }
 
+  function getTriggerArrays(nextDialogueId) {
+    const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
+    dialogueTriggers.forEach(async (element) => {
+      const splitedString = element.split("_");
+      if (splitedString.length > 1) {
+        if (splitedString[0] == "archetype") {
+          const actualArchetype =
+            (await asyncStorageHook.getStorageHandler("@archetype")) ?? 0;
+          const newArchetype = Number(splitedString[1]);
+          const archetype =
+            actualArchetype < newArchetype ? newArchetype : actualArchetype;
+          asyncStorageHook.setStorageHandler("@archetype", archetype);
+        } else if (splitedString[0] == "herosJourney") {
+          const actualHerosJourney =
+            (await asyncStorageHook.getStorageHandler("@herosJourney")) ?? 0;
+          const newHerosJourney = Number(splitedString[1]);
+          const herosJourney =
+            actualHerosJourney < newHerosJourney
+              ? newHerosJourney
+              : actualHerosJourney;
+          asyncStorageHook.setStorageHandler("@herosJourney", herosJourney);
+        }
+      }
+    });
+  }
+
   // MARK: - View
+
+  var content = <View />;
+
+  if (actualDialogueId != null) {
+    content = (
+      <Animated.View
+        style={[
+          styles.gameplayContainer,
+          !showDialogue && styles.hidden,
+          translateAnimatedStyles,
+        ]}
+      >
+        <View style={styles.cardContainer}>
+          <GameplayCard
+            image={getDialogue(actualDialogueId).firstCardImageName}
+            text={getDialogue(actualDialogueId).firstCardText}
+            selectHandler={selectLeftCard}
+            ref={leftCardRef}
+          />
+        </View>
+        <View style={styles.letterContainer}>
+          <ImageBackground
+            style={[styles.letter, styles.shadowContent]}
+            source={require("../assets/ui/Ariel_letter.png")}
+            resizeMode="contain"
+          >
+            <WriteText
+              text={getDialogue(actualDialogueId).descriptionText}
+              coloredStrings={getDialogue(actualDialogueId).coloredStrings}
+              onPress={flipCards}
+              ref={writeLetterRef}
+            />
+          </ImageBackground>
+        </View>
+        <View style={styles.cardContainer}>
+          <GameplayCard
+            image={getDialogue(actualDialogueId).secondCardImageName}
+            text={getDialogue(actualDialogueId).secondCardText}
+            selectHandler={selectRightCard}
+            ref={rightCardRef}
+          />
+        </View>
+      </Animated.View>
+    );
+  }
+
   return (
     <>
       <ImageBackground
@@ -114,44 +204,7 @@ function Gameplay({ navigation }) {
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
 
-        <Animated.View
-          style={[
-            styles.gameplayContainer,
-            !showDialogue && styles.hidden,
-            translateAnimatedStyles,
-          ]}
-        >
-          <View style={styles.cardContainer}>
-            <GameplayCard
-              image={data[actualDialogueId].firstCardImageName}
-              text={data[actualDialogueId].firstCardText}
-              selectHandler={selectLeftCard}
-              ref={leftCardRef}
-            />
-          </View>
-          <View style={styles.letterContainer}>
-            <ImageBackground
-              style={[styles.letter, styles.shadowContent]}
-              source={require("../assets/ui/Ariel_letter.png")}
-              resizeMode="contain"
-            >
-              <WriteText
-                text={data[actualDialogueId].descriptionText}
-                coloredStrings={data[actualDialogueId].coloredStrings}
-                onPress={flipCards}
-                ref={writeLetterRef}
-              />
-            </ImageBackground>
-          </View>
-          <View style={styles.cardContainer}>
-            <GameplayCard
-              image={data[actualDialogueId].secondCardImageName}
-              text={data[actualDialogueId].secondCardText}
-              selectHandler={selectRightCard}
-              ref={rightCardRef}
-            />
-          </View>
-        </Animated.View>
+        {content}
       </ImageBackground>
     </>
   );

@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, View, Image } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import HerosJourneyCard from "../components/HerosJourneyCard";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useAsyncStorage } from "../data/useAsyncStorage";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import BottomSheet, {
   BottomSheetView,
@@ -13,8 +14,10 @@ import { HEROS_JOURNEY } from "../models/herosJourney";
 
 function HerosJourney({ navigation }) {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+  const [herosJourney, setHerosJourney] = useState(0);
 
   const bottomSheetRef = useRef(null);
+  const asyncStorageHook = useAsyncStorage();
   const [indexState, setIndexState] = useState(-1);
   const snapPoints = useMemo(() => ["80%"], []);
   const data = HEROS_JOURNEY;
@@ -27,6 +30,14 @@ function HerosJourney({ navigation }) {
     setIndexState(0);
     setSelectedCardIndex(index);
   }
+
+  async function getData() {
+    setHerosJourney(await asyncStorageHook.getStorageHandler("@herosJourney"));
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     if (selectedCardIndex != null) {
@@ -67,7 +78,7 @@ function HerosJourney({ navigation }) {
               return (
                 <HerosJourneyCard
                   cardId={cardIndex}
-                  active={cardIndex < 2}
+                  active={cardIndex < herosJourney}
                   onPress={() => {
                     showDetail(cardIndex);
                   }}

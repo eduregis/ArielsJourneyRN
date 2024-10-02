@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, View, Image } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import ArchetypeCard from "../components/ArchetypeCard";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useAsyncStorage } from "../data/useAsyncStorage";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import BottomSheet, {
   BottomSheetView,
@@ -13,8 +14,10 @@ import { ARCHETYPES } from "../models/archetypes";
 
 function ArchetypesScreen({ navigation }) {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+  const [archetype, setArchetype] = useState(0);
 
   const bottomSheetRef = useRef(null);
+  const asyncStorageHook = useAsyncStorage();
   const [indexState, setIndexState] = useState(-1);
   const snapPoints = useMemo(() => ["80%"], []);
   const data = ARCHETYPES;
@@ -27,6 +30,14 @@ function ArchetypesScreen({ navigation }) {
     setIndexState(0);
     setSelectedCardIndex(index);
   }
+
+  async function getData() {
+    setArchetype(await asyncStorageHook.getStorageHandler("@archetype"));
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     if (selectedCardIndex != null) {
@@ -58,7 +69,7 @@ function ArchetypesScreen({ navigation }) {
               return (
                 <ArchetypeCard
                   cardId={cardIndex}
-                  active={cardIndex < 2}
+                  active={cardIndex < archetype}
                   onPress={() => {
                     showDetail(cardIndex);
                   }}
