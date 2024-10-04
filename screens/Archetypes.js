@@ -19,7 +19,7 @@ function ArchetypesScreen({ navigation }) {
   const bottomSheetRef = useRef(null);
   const asyncStorageHook = useAsyncStorage();
   const [indexState, setIndexState] = useState(-1);
-  const snapPoints = useMemo(() => ["95%"], []);
+  const snapPoints = useMemo(() => ["90%"], []);
   const data = ARCHETYPES;
 
   function backToMenu() {
