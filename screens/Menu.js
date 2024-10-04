@@ -3,11 +3,18 @@ import CustomNavigationBar from "../components/CustomNavigationBar";
 import MenuCard from "../components/MenuCard";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import store from "../store/redux/store";
 
 function MenuScreen({ navigation }) {
   const [dialogue, setDialogue] = useState(0);
   const asyncStorageHook = useAsyncStorage();
+
+  store.subscribe(() => {
+    let settings = store.getState().settings;
+    if (settings.value == false) {
+      getData();
+    }
+  });
 
   async function goToNewGame() {
     navigation.navigate("Gameplay");

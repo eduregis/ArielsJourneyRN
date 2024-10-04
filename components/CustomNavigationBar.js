@@ -8,13 +8,13 @@ import {
 } from "react-native";
 import { Colors } from "../constants/colors";
 import { useDispatch } from "react-redux";
-import { trigger } from "../store/redux/settingsTrigger";
+import { openSettings } from "../store/redux/settingsTrigger";
 
 function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
   const dispatch = useDispatch();
 
   async function settingsNavigateHandler() {
-    dispatch(trigger());
+    dispatch(openSettings());
   }
 
   var navigationBkg = require("../assets/ui/Ariel_navigation_bar.png");

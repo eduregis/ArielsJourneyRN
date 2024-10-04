@@ -4,7 +4,10 @@ import React from "react";
 
 function CustomButton({ title, onPress }) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => pressed && styles.pressed}
+    >
       <ImageBackground
         source={require("../assets/ui/Ariel_menu_card_name.png")}
         resizeMode="cover"
@@ -19,6 +22,9 @@ function CustomButton({ title, onPress }) {
 export default CustomButton;
 
 const styles = StyleSheet.create({
+  pressed: {
+    opacity: 0.5,
+  },
   nameContainer: {
     width: 200,
     height: 40,

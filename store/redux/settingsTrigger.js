@@ -1,17 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const settingsSlice = createSlice({
-  name: "counter",
+  name: "trigger",
   initialState: {
     value: true,
   },
   reducers: {
-    trigger: (state) => {
-      state.value = -state.value;
+    openSettings: (state) => {
+      state.value = true;
+      console.log("open");
+    },
+    closeSettings: (state) => {
+      state.value = false;
+      console.log("close");
     },
   },
 });
 
-export const { trigger } = settingsSlice.actions;
+export const { openSettings, closeSettings } = settingsSlice.actions;
 
 export default settingsSlice.reducer;
