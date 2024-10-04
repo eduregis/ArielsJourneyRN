@@ -8,14 +8,18 @@ import {
 } from "react-native";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import { Colors } from "../constants/colors";
+import { useDispatch } from "react-redux";
+import { trigger } from "../store/redux/settingsTrigger";
 
 function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
   const asyncStorageHook = useAsyncStorage();
+  const dispatch = useDispatch();
 
   async function settingsNavigateHandler() {
-    await asyncStorageHook.setStorageHandler("@dialogue", 0);
-    await asyncStorageHook.setStorageHandler("@archetype", 0);
-    await asyncStorageHook.setStorageHandler("@herosJourney", 0);
+    dispatch(trigger());
+    // await asyncStorageHook.setStorageHandler("@dialogue", 0);
+    // await asyncStorageHook.setStorageHandler("@archetype", 0);
+    // await asyncStorageHook.setStorageHandler("@herosJourney", 0);
   }
 
   var navigationBkg = require("../assets/ui/Ariel_navigation_bar.png");

@@ -10,6 +10,8 @@ import GameplayScreen from "./screens/Gameplay";
 import HerosJourneyScreen from "./screens/HerosJourney";
 import ArchetypesScreen from "./screens/Archetypes";
 import AchievementsScreen from "./screens/Achievements";
+import store from "./store/redux/store";
+import { Provider } from "react-redux";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,24 +20,31 @@ export default function App() {
     "macondo-regular": require("./assets/fonts/Macondo-Regular.ttf"),
   });
 
+  store.subscribe(() => {
+    let { settings } = store.getState();
+    console.log(settings);
+  });
+
   return (
     <>
-      <StatusBar style="dark" />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-            contentStyle: { backgroundColor: Colors.background500 },
-            animation: "none",
-          }}
-        >
-          <Stack.Screen name="Menu" component={MenuScreen} />
-          <Stack.Screen name="Gameplay" component={GameplayScreen} />
-          <Stack.Screen name="HerosJourney" component={HerosJourneyScreen} />
-          <Stack.Screen name="Archetypes" component={ArchetypesScreen} />
-          <Stack.Screen name="Achievements" component={AchievementsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <StatusBar style="dark" />
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+              contentStyle: { backgroundColor: Colors.background500 },
+              animation: "none",
+            }}
+          >
+            <Stack.Screen name="Menu" component={MenuScreen} />
+            <Stack.Screen name="Gameplay" component={GameplayScreen} />
+            <Stack.Screen name="HerosJourney" component={HerosJourneyScreen} />
+            <Stack.Screen name="Archetypes" component={ArchetypesScreen} />
+            <Stack.Screen name="Achievements" component={AchievementsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
     </>
   );
 }
