@@ -124,36 +124,38 @@ function Gameplay({ navigation }) {
   }
 
   function getTriggerArrays(nextDialogueId) {
-    const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
-    dialogueTriggers.forEach(async (element) => {
-      const splitedString = element.split("_");
-      if (splitedString.length > 1) {
-        if (splitedString[0] == "archetype") {
-          const actualArchetype =
-            (await asyncStorageHook.getStorageHandler("@archetype")) ?? 0;
-          const newArchetype = Number(splitedString[1]);
-          const archetype =
-            actualArchetype < newArchetype ? newArchetype : actualArchetype;
-          asyncStorageHook.setStorageHandler("@archetype", archetype);
-        } else if (splitedString[0] == "herosJourney") {
-          const actualHerosJourney =
-            (await asyncStorageHook.getStorageHandler("@herosJourney")) ?? 0;
-          const newHerosJourney = Number(splitedString[1]);
-          const herosJourney =
-            actualHerosJourney < newHerosJourney
-              ? newHerosJourney
-              : actualHerosJourney;
-          asyncStorageHook.setStorageHandler("@herosJourney", herosJourney);
+    if (getDialogue(nextDialogueId)) {
+      const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
+      dialogueTriggers.forEach(async (element) => {
+        const splitedString = element.split("_");
+        if (splitedString.length > 1) {
+          if (splitedString[0] == "archetype") {
+            const actualArchetype =
+              (await asyncStorageHook.getStorageHandler("@archetype")) ?? 0;
+            const newArchetype = Number(splitedString[1]);
+            const archetype =
+              actualArchetype < newArchetype ? newArchetype : actualArchetype;
+            asyncStorageHook.setStorageHandler("@archetype", archetype);
+          } else if (splitedString[0] == "herosJourney") {
+            const actualHerosJourney =
+              (await asyncStorageHook.getStorageHandler("@herosJourney")) ?? 0;
+            const newHerosJourney = Number(splitedString[1]);
+            const herosJourney =
+              actualHerosJourney < newHerosJourney
+                ? newHerosJourney
+                : actualHerosJourney;
+            asyncStorageHook.setStorageHandler("@herosJourney", herosJourney);
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   // MARK: - View
 
   var content = <View />;
 
-  if (actualDialogueId != null) {
+  if (actualDialogueId != null && getDialogue(actualDialogueId)) {
     content = (
       <Animated.View
         style={[

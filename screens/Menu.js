@@ -9,14 +9,8 @@ function MenuScreen({ navigation }) {
   const asyncStorageHook = useAsyncStorage();
 
   async function goToNewGame() {
-    await asyncStorageHook.setStorageHandler("@dialogue", 0);
+    // await asyncStorageHook.setStorageHandler("@dialogue", 0);
     navigation.navigate("Gameplay");
-  }
-
-  function goToContinue() {
-    if (dialogue != 0) {
-      navigation.navigate("Gameplay");
-    }
   }
 
   function goToHerosJourney() {
@@ -60,11 +54,9 @@ function MenuScreen({ navigation }) {
       <CustomNavigationBar title="Menu" hideBackButton={true} />
       <View style={styles.menuContainer}>
         <ScrollView horizontal={true}>
-          <MenuCard title="Novo Jogo" menuHandler={goToNewGame} />
           <MenuCard
-            title="Continuar"
-            menuHandler={goToContinue}
-            disabled={dialogue == 0}
+            title={dialogue != 0 ? "Continuar" : "Novo Jogo"}
+            menuHandler={goToNewGame}
           />
           <MenuCard title="Jornada do Herói" menuHandler={goToHerosJourney} />
           <MenuCard title="Arquétipos" menuHandler={goToArchetypes} />

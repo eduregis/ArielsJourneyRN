@@ -28,30 +28,28 @@ function HerosJourneyDetailsSheet({ index }) {
   if (index != null) {
     selectedCardDescription = (
       <View>
-        <Text style={styles.title}>{card.herosJourneysStage}</Text>
         <View style={styles.adornmentsContainer}>
           <Image
             style={styles.adornments}
             source={require("../assets/ui/Ariel_adornment.png")}
           />
+          <Text style={styles.title}>{card.herosJourneysStage}</Text>
           <Image
             style={styles.adornments}
             source={require("../assets/ui/Ariel_adornment.png")}
           />
         </View>
-        <Text style={styles.description}>{card.descriptionText}</Text>
+        <View style={styles.contentContainer}>
+          <View style={styles.cardContainer}>{selectedCardImage}</View>
+          <Text style={styles.description}>{card.descriptionText}</Text>
+        </View>
       </View>
     );
   }
 
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.cardContainer}>{selectedCardImage}</View>
-        <View style={styles.descriptionContainer}>
-          {selectedCardDescription}
-        </View>
-      </View>
+      <View style={styles.container}>{selectedCardDescription}</View>
     </>
   );
 }
@@ -64,34 +62,36 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     flexDirection: "row",
   },
-  cardContainer: {
-    flex: 1,
+  adornmentsContainer: {
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-  },
-  descriptionContainer: {
-    flex: 2,
-    alignItems: "center",
-    justifyContent: "flex-start",
+    marginHorizontal: 24,
+    marginBottom: 16,
   },
   title: {
     color: Colors.primary300,
     fontSize: 21,
     fontFamily: "macondo-regular",
     textAlign: "center",
-    paddingTop: 12,
-  },
-  adornmentsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginHorizontal: 24,
-    marginBottom: 16,
+    marginHorizontal: 54,
   },
   adornments: {
     width: 191,
     height: 23,
   },
+  contentContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 16,
+  },
+  cardContainer: {
+    flex: 1,
+    marginRight: 32,
+  },
   description: {
+    flex: 3,
+    marginTop: 16,
     color: Colors.primary300,
     fontSize: 16,
     textAlign: "center",
