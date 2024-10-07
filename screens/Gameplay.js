@@ -12,6 +12,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import WriteText from "../components/WriteText";
+import SoundManager from "../components/SoundManager";
 
 function Gameplay({ navigation }) {
   // MARK: - Variables
@@ -24,6 +25,7 @@ function Gameplay({ navigation }) {
   const leftCardRef = useRef();
   const rightCardRef = useRef();
   const writeLetterRef = useRef();
+  const soundRef = useRef();
   const translate = useSharedValue(0);
 
   // MARK: - Animated Styles
@@ -45,6 +47,7 @@ function Gameplay({ navigation }) {
   // MARK: - Functions
   useEffect(() => {
     setupInitial();
+    soundRef.current.playMusicHandler();
   }, []);
 
   async function setupInitial() {
@@ -205,7 +208,10 @@ function Gameplay({ navigation }) {
         style={styles.container}
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
-
+        <SoundManager
+          soundPath={require("../assets/sounds/Ariel_ambience_01.mp3")}
+          ref={soundRef}
+        />
         {content}
       </ImageBackground>
     </>

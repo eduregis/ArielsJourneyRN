@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  Alert,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { Colors } from "../constants/colors";
 import CustomButton from "../components/CustomButton";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import CustomSlider from "../components/CustomSlider";
+import CreditsCard from "../components/CreditsCard";
 
 function SettingsDetails() {
   const asyncStorageHook = useAsyncStorage();
@@ -11,7 +19,18 @@ function SettingsDetails() {
   const [musicVolume, setMusicValue] = useState(0);
   const [effectVolume, setEffectValue] = useState(0);
 
-  async function resetGame() {
+  function callResetAlert() {
+    Alert.alert(
+      "Atenção!",
+      "Você realmente deseja reiniciar sua aventura? Irá perder seu progresso atual.",
+      [
+        { text: "Voltar", style: "cancel" },
+        { text: "Okay", style: "destructive", onPress: resetGameHandler },
+      ]
+    );
+  }
+
+  async function resetGameHandler() {
     await asyncStorageHook.setStorageHandler("@dialogue", 0);
     await asyncStorageHook.setStorageHandler("@archetype", 0);
     await asyncStorageHook.setStorageHandler("@herosJourney", 0);
@@ -74,7 +93,13 @@ function SettingsDetails() {
             />
           </View>
           <View style={styles.creditsAndRestartContainer}>
-            <CustomButton title={"Reiniciar Aventura"} onPress={resetGame} />
+            <View style={styles.restartButton}>
+              <CustomButton
+                title={"Reiniciar Aventura"}
+                onPress={callResetAlert}
+              />
+            </View>
+            <CreditsCard />
           </View>
         </View>
       </View>
@@ -120,5 +145,9 @@ const styles = StyleSheet.create({
   creditsAndRestartContainer: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
+  },
+  restartButton: {
+    margin: 20,
   },
 });

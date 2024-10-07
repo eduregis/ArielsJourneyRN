@@ -16,6 +16,9 @@ function SoundManager({ soundPath }, ref) {
     playMusicHandler: () => {
       playMusic();
     },
+    playAmbienceHandler: () => {
+      playAmbience();
+    },
   }));
 
   async function playSoundOnce() {
@@ -34,7 +37,17 @@ function SoundManager({ soundPath }, ref) {
     const { sound } = await Audio.Sound.createAsync(soundPath);
     const volume = await asyncStorageHook.getStorageHandler("@musicVolume");
     setSound(sound);
+    // Playing Sound
+    await sound.setIsLoopingAsync(true);
+    await sound.setVolumeAsync(volume);
+    await sound.playAsync();
+  }
 
+  async function playAmbience() {
+    // Loading Sound
+    const { sound } = await Audio.Sound.createAsync(soundPath);
+    const volume = await asyncStorageHook.getStorageHandler("@ambienceVolume");
+    setSound(sound);
     // Playing Sound
     await sound.setIsLoopingAsync(true);
     await sound.setVolumeAsync(volume);
