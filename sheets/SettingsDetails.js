@@ -19,17 +19,14 @@ function SettingsDetails() {
 
   function ambienceChange(progress) {
     asyncStorageHook.setStorageHandler("@ambienceVolume", progress);
-    console.log(progress);
   }
 
   function musicChange(progress) {
     asyncStorageHook.setStorageHandler("@musicVolume", progress);
-    console.log(progress);
   }
 
   function effectChange(progress) {
     asyncStorageHook.setStorageHandler("@effectVolume", progress);
-    console.log(progress);
   }
 
   useEffect(() => {
