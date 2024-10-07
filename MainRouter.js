@@ -14,6 +14,7 @@ import GameplayScreen from "./screens/Gameplay";
 import HerosJourneyScreen from "./screens/HerosJourney";
 import ArchetypesScreen from "./screens/Archetypes";
 import AchievementsScreen from "./screens/Achievements";
+import GalleryScreen from "./screens/Gallery";
 import store from "./store/redux/store";
 import { useDispatch } from "react-redux";
 import { closeSettings } from "./store/redux/settingsTrigger";
@@ -70,6 +71,7 @@ function MainRouter() {
             <Stack.Screen name="HerosJourney" component={HerosJourneyScreen} />
             <Stack.Screen name="Archetypes" component={ArchetypesScreen} />
             <Stack.Screen name="Achievements" component={AchievementsScreen} />
+            <Stack.Screen name="Gallery" component={GalleryScreen} />
           </Stack.Navigator>
         </NavigationContainer>
         <BottomSheet

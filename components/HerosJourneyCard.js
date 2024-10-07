@@ -24,7 +24,7 @@ function HerosJourneyCard({ cardId, active, exhibition, onPress }) {
       style={styles.container}
     >
       <View style={styles.arrowMiddleNumberContainer}>
-        <Text style={styles.arrowMiddleNumber}>{cardId}</Text>
+        <Text style={styles.arrowMiddleNumber}>{card.id + 1}</Text>
       </View>
     </ImageBackground>
   );
@@ -47,7 +47,7 @@ function HerosJourneyCard({ cardId, active, exhibition, onPress }) {
               style={styles.image}
             >
               <View style={styles.numberContainer}>
-                <Text style={styles.number}>{cardId}</Text>
+                <Text style={styles.number}>{card.id + 1}</Text>
               </View>
             </ImageBackground>
           </View>
