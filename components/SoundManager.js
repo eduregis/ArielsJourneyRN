@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
+import { useAsyncStorage } from "../data/useAsyncStorage";
 import { Audio } from "expo-av";
 
 function SoundManager({ soundPath }, ref) {
   // MARK: - Variables
+  const asyncStorageHook = useAsyncStorage();
   const [sound, setSound] = useState();
 
   // MARK: - Functions
@@ -11,21 +13,51 @@ function SoundManager({ soundPath }, ref) {
     playSoundOnceHandler: () => {
       playSoundOnce();
     },
+    playMusicHandler: () => {
+      playMusic();
+    },
+    playAmbienceHandler: () => {
+      playAmbience();
+    },
   }));
 
   async function playSoundOnce() {
-    // console.log("Loading Sound");
+    // Loading Sound
     const { sound } = await Audio.Sound.createAsync(soundPath);
+    const volume = await asyncStorageHook.getStorageHandler("@effectVolume");
     setSound(sound);
 
-    // console.log("Playing Sound");
+    // Playing Sound
+    await sound.setVolumeAsync(volume);
+    await sound.playAsync();
+  }
+
+  async function playMusic() {
+    // Loading Sound
+    const { sound } = await Audio.Sound.createAsync(soundPath);
+    const volume = await asyncStorageHook.getStorageHandler("@musicVolume");
+    setSound(sound);
+    // Playing Sound
+    await sound.setIsLoopingAsync(true);
+    await sound.setVolumeAsync(volume);
+    await sound.playAsync();
+  }
+
+  async function playAmbience() {
+    // Loading Sound
+    const { sound } = await Audio.Sound.createAsync(soundPath);
+    const volume = await asyncStorageHook.getStorageHandler("@ambienceVolume");
+    setSound(sound);
+    // Playing Sound
+    await sound.setIsLoopingAsync(true);
+    await sound.setVolumeAsync(volume);
     await sound.playAsync();
   }
 
   useEffect(() => {
     return sound
       ? () => {
-          // console.log("Unloading Sound");
+          // Unloading Sound
           sound.unloadAsync();
         }
       : undefined;

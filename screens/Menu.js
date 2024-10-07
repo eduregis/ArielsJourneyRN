@@ -3,20 +3,21 @@ import CustomNavigationBar from "../components/CustomNavigationBar";
 import MenuCard from "../components/MenuCard";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import { useEffect, useState } from "react";
+import store from "../store/redux/store";
 
 function MenuScreen({ navigation }) {
   const [dialogue, setDialogue] = useState(0);
   const asyncStorageHook = useAsyncStorage();
 
-  async function goToNewGame() {
-    await asyncStorageHook.setStorageHandler("@dialogue", 0);
-    navigation.navigate("Gameplay");
-  }
-
-  function goToContinue() {
-    if (dialogue != 0) {
-      navigation.navigate("Gameplay");
+  store.subscribe(() => {
+    let settings = store.getState().settings;
+    if (settings.value == false) {
+      getData();
     }
+  });
+
+  async function goToNewGame() {
+    navigation.navigate("Gameplay");
   }
 
   function goToHerosJourney() {
@@ -60,11 +61,9 @@ function MenuScreen({ navigation }) {
       <CustomNavigationBar title="Menu" hideBackButton={true} />
       <View style={styles.menuContainer}>
         <ScrollView horizontal={true}>
-          <MenuCard title="Novo Jogo" menuHandler={goToNewGame} />
           <MenuCard
-            title="Continuar"
-            menuHandler={goToContinue}
-            disabled={dialogue == 0}
+            title={dialogue != 0 ? "Continuar" : "Novo Jogo"}
+            menuHandler={goToNewGame}
           />
           <MenuCard title="Jornada do Herói" menuHandler={goToHerosJourney} />
           <MenuCard title="Arquétipos" menuHandler={goToArchetypes} />
