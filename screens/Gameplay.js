@@ -20,12 +20,13 @@ function Gameplay({ navigation }) {
   const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
-  const [actualDialogueId, setActualDialogueId] = useState(null); // Colocar id do dialogue inicial, colocar como 0
+  const [actualDialogueId, setActualDialogueId] = useState(null);
   const asyncStorageHook = useAsyncStorage();
   const leftCardRef = useRef();
   const rightCardRef = useRef();
   const writeLetterRef = useRef();
-  const soundRef = useRef();
+  const soundAmbienceRef = useRef();
+  const soundEffectRef = useRef();
   const translate = useSharedValue(0);
 
   // MARK: - Animated Styles
@@ -47,7 +48,7 @@ function Gameplay({ navigation }) {
   // MARK: - Functions
   useEffect(() => {
     setupInitial();
-    soundRef.current.playMusicHandler();
+    soundAmbienceRef.current.playMusicHandler();
   }, []);
 
   async function setupInitial() {
@@ -64,6 +65,12 @@ function Gameplay({ navigation }) {
 
   function translateCards(animateIndex) {
     translate.value = animateIndex;
+  }
+
+  function soundTrigger() {
+    if (getDialogue(actualDialogueId)?.soundTrigger != null) {
+      soundEffectRef.current.playSoundOnceHandler();
+    }
   }
 
   function getDialogue(dialogueId) {
@@ -123,6 +130,7 @@ function Gameplay({ navigation }) {
       asyncStorageHook.setStorageHandler("@dialogue", nextDialogueId);
       setActualDialogueId(nextDialogueId);
       getTriggerArrays(nextDialogueId);
+      soundTrigger();
     }, 500);
   }
 
@@ -157,6 +165,7 @@ function Gameplay({ navigation }) {
   // MARK: - View
 
   var content = <View />;
+  var soundEffectTrigger = <View />;
 
   if (actualDialogueId != null && getDialogue(actualDialogueId)) {
     content = (
@@ -201,6 +210,15 @@ function Gameplay({ navigation }) {
     );
   }
 
+  if (getDialogue(actualDialogueId)?.soundTrigger != null) {
+    soundEffectTrigger = (
+      <SoundManager
+        soundPath={getDialogue(actualDialogueId)?.soundTrigger}
+        ref={soundEffectRef}
+      />
+    );
+  }
+
   return (
     <>
       <ImageBackground
@@ -210,8 +228,9 @@ function Gameplay({ navigation }) {
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
         <SoundManager
           soundPath={require("../assets/sounds/Ariel_ambience_01.mp3")}
-          ref={soundRef}
+          ref={soundAmbienceRef}
         />
+        {soundEffectTrigger}
         {content}
       </ImageBackground>
     </>
