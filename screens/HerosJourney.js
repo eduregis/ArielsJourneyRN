@@ -9,7 +9,7 @@ import BottomSheet, {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 import HerosJourneyDetailsSheet from "../sheets/HerosJourneyDetails";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { HEROS_JOURNEY } from "../models/herosJourney";
 
 function HerosJourney({ navigation }) {

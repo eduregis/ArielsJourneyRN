@@ -7,7 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { ARCHETYPES } from "../models/archetypes";
 
 function ArchetypeCard({ cardId, active, exhibition, onPress }) {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 11,
+    fontSize: 12,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 12,

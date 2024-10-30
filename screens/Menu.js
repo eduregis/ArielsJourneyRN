@@ -39,18 +39,18 @@ function MenuScreen({ navigation }) {
   async function getData() {
     setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
 
-    console.log(
-      "Dialogue: ",
-      await asyncStorageHook.getStorageHandler("@dialogue")
-    );
-    console.log(
-      "Archetypes: ",
-      await asyncStorageHook.getStorageHandler("@archetype")
-    );
-    console.log(
-      "Hero`s Journey: ",
-      await asyncStorageHook.getStorageHandler("@herosJourney")
-    );
+    // console.log(
+    //   "Dialogue: ",
+    //   await asyncStorageHook.getStorageHandler("@dialogue")
+    // );
+    // console.log(
+    //   "Archetypes: ",
+    //   await asyncStorageHook.getStorageHandler("@archetype")
+    // );
+    // console.log(
+    //   "Hero`s Journey: ",
+    //   await asyncStorageHook.getStorageHandler("@herosJourney")
+    // );
   }
 
   useEffect(() => {

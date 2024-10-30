@@ -6,7 +6,7 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { HEROS_JOURNEY } from "../models/herosJourney";
 
 function HerosJourneyCard({ cardId, active, exhibition, onPress }) {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   number: {
     color: Colors.background600,
-    fontSize: 13,
+    fontSize: 14,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 11,
+    fontSize: 12,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 12,

@@ -68,9 +68,7 @@ function Gameplay({ navigation }) {
   }
 
   function soundTrigger() {
-    if (getDialogue(actualDialogueId)?.soundTrigger != null) {
-      soundEffectRef.current.playSoundOnceHandler();
-    }
+    soundEffectRef.current.playSoundOnceHandler();
   }
 
   function getDialogue(dialogueId) {
@@ -130,7 +128,9 @@ function Gameplay({ navigation }) {
       asyncStorageHook.setStorageHandler("@dialogue", nextDialogueId);
       setActualDialogueId(nextDialogueId);
       getTriggerArrays(nextDialogueId);
-      soundTrigger();
+      if (getDialogue(nextDialogueId)?.soundTrigger != null) {
+        soundTrigger();
+      }
     }, 500);
   }
 

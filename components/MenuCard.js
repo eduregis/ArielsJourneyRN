@@ -1,5 +1,5 @@
 import { ImageBackground, Pressable, StyleSheet, Text } from "react-native";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 
 function MenuCard({ title, menuHandler, disabled, coverImage, card }) {
   return (

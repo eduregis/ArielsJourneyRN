@@ -8,11 +8,9 @@ export const settingsSlice = createSlice({
   reducers: {
     openSettings: (state) => {
       state.value = true;
-      console.log("open");
     },
     closeSettings: (state) => {
       state.value = false;
-      console.log("close");
     },
   },
 });

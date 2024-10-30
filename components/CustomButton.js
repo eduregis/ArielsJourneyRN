@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, ImageBackground } from "react-native";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import React from "react";
 
 function CustomButton({ title, onPress }) {

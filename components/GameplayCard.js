@@ -14,7 +14,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { useRef, forwardRef, useImperativeHandle } from "react";
 import SoundManager from "../components/SoundManager";
 

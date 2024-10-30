@@ -7,7 +7,7 @@ import BottomSheet, {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Colors } from "./constants/colors";
+import { Colors } from "./constants/constants";
 
 import MenuScreen from "./screens/Menu";
 import GameplayScreen from "./screens/Gameplay";

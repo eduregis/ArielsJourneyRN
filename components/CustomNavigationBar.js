@@ -6,7 +6,7 @@ import {
   View,
   Pressable,
 } from "react-native";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { useDispatch } from "react-redux";
 import { openSettings } from "../store/redux/settingsTrigger";
 
