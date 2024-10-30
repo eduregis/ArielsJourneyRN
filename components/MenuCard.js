@@ -1,5 +1,5 @@
 import { ImageBackground, Pressable, StyleSheet, Text } from "react-native";
-import { Colors } from "../constants/constants";
+import { Colors, Constants } from "../constants/constants";
 
 function MenuCard({ title, menuHandler, disabled, coverImage, card }) {
   return (
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },

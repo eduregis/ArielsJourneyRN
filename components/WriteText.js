@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Colors } from "../constants/constants";
+import { Colors, Constants } from "../constants/constants";
 import { forwardRef, useImperativeHandle } from "react";
 
 function WriteText({ text, coloredStrings, onPress }, ref) {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
   },
 

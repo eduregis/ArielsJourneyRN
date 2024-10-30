@@ -14,7 +14,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { Colors } from "../constants/constants";
+import { Colors, Constants } from "../constants/constants";
 import { useRef, forwardRef, useImperativeHandle } from "react";
 import SoundManager from "../components/SoundManager";
 
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 12,

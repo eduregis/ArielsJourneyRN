@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, ImageBackground } from "react-native";
-import { Colors } from "../constants/constants";
+import { Colors, Constants } from "../constants/constants";
 import React from "react";
 
 function CustomButton({ title, onPress }) {
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },

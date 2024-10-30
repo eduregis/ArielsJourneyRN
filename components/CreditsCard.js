@@ -1,12 +1,5 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Linking,
-  Button,
-  Pressable,
-} from "react-native";
-import { Colors } from "../constants/constants";
+import { StyleSheet, Text, View, Linking, Pressable } from "react-native";
+import { Colors, Constants } from "../constants/constants";
 import { useCallback } from "react";
 
 function CreditsCard() {
@@ -60,13 +53,13 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.primary300,
-    fontSize: 20,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },
   text: {
     color: Colors.primary300,
-    fontSize: 20,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },
