@@ -211,15 +211,15 @@ export const GAMEPLAY_DIALOGUES = [
 
 export const TEST_DIALOGUES = [
   new GameplayDialogue(
-    0,
-    "Ariel dormia profundamente quando escutou uma voz familiar…",
-    "Dormir um pouco mais",
-    "Abrir os olhos",
-    require("../assets/images/gameplayCards/Ariel_card_001.png"),
-    require("../assets/images/gameplayCards/Ariel_card_002.png"),
+    0, // id do diálogo
+    "Ariel dormia profundamente quando escutou uma voz familiar…", // texto do cartão central
+    "Dormir um pouco mais", // texto da primeira carta
+    "Abrir os olhos", // texto da segunda carta
+    require("../assets/images/gameplayCards/Ariel_card_001.png"), // nome da imagem da primeira carta, trocar apenas Ariel_card_001
+    require("../assets/images/gameplayCards/Ariel_card_002.png"), // nome da imagem da segunda carta
     1, // ir para o dialogue referente a este id, se selecionar o primeiro card
     2, // ir para o dialogue referente a este id, se selecionar o segundo card
-    "Mundo normal",
+    "Mundo normal", // repete
     null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
     false, // Se for um som que fique repetindo, deixar como true aqui
     null, // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
