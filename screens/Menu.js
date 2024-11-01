@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import store from "../store/redux/store";
 
 function MenuScreen({ navigation }) {
+  const [state, setState] = useState(0);
   const [dialogue, setDialogue] = useState(0);
   const asyncStorageHook = useAsyncStorage();
 
@@ -37,19 +38,12 @@ function MenuScreen({ navigation }) {
   }
 
   async function getData() {
+    setState(await asyncStorageHook.getStorageHandler("@state"));
     setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
 
     // console.log(
     //   "Dialogue: ",
     //   await asyncStorageHook.getStorageHandler("@dialogue")
-    // );
-    // console.log(
-    //   "Archetypes: ",
-    //   await asyncStorageHook.getStorageHandler("@archetype")
-    // );
-    // console.log(
-    //   "Hero`s Journey: ",
-    //   await asyncStorageHook.getStorageHandler("@herosJourney")
     // );
   }
 
@@ -78,7 +72,7 @@ function MenuScreen({ navigation }) {
             coverImage={require("../assets/images/Ariel_menu_card_archetypes.png")}
           />
           <MenuCard
-            title={dialogue != 0 ? "Continuar" : "Novo Jogo"}
+            title={state == 0 && dialogue == 0 ? "Novo Jogo" : "Continuar"}
             menuHandler={goToNewGame}
             card={styles.mainCard}
             coverImage={require("../assets/images/Ariel_menu_card_gameplay.png")}

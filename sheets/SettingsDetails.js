@@ -24,6 +24,7 @@ function SettingsDetails() {
   }
 
   async function resetGameHandler() {
+    await asyncStorageHook.setStorageHandler("@state", 0);
     await asyncStorageHook.setStorageHandler("@dialogue", 0);
     await asyncStorageHook.setStorageHandler("@archetype", 0);
     await asyncStorageHook.setStorageHandler("@herosJourney", 0);

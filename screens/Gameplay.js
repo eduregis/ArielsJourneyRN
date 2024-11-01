@@ -2,7 +2,7 @@ import { ImageBackground, StyleSheet, View } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
-import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
+import { GAMEPLAY_ORDINARYWORLD_DIALOGUES } from "../models/gameplayDialogues";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
   max,
@@ -16,7 +16,7 @@ import SoundManager from "../components/SoundManager";
 
 function Gameplay({ navigation }) {
   // MARK: - Variables
-  const data = GAMEPLAY_DIALOGUES;
+  const [data, setData] = useState([]);
   const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
@@ -45,12 +45,17 @@ function Gameplay({ navigation }) {
     };
   });
 
-  // MARK: - Functions
+  // MARK: - Observables
   useEffect(() => {
-    setupInitial();
+    setData(GAMEPLAY_ORDINARYWORLD_DIALOGUES.dialogues);
     soundAmbienceRef.current.playMusicHandler();
   }, []);
 
+  useEffect(() => {
+    setupInitial();
+  }, [data]);
+
+  // MARK: - Functions
   async function setupInitial() {
     const result = await asyncStorageHook.getStorageHandler("@dialogue");
     setActualDialogueId(result);
