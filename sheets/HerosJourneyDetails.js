@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect } from "react";
 import HerosJourneyCard from "../components/HerosJourneyCard";
 import { HEROS_JOURNEY } from "../models/herosJourney";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 
 function HerosJourneyDetailsSheet({ index }) {
   var card = HEROS_JOURNEY[index];
 
   useEffect(() => {
-    console.log(index);
+    // console.log(index);
   }, [index]);
 
   var selectedCardImage = <View />;
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary300,
-    fontSize: 21,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 54,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 3,
     marginTop: 16,
     color: Colors.primary300,
-    fontSize: 16,
+    fontSize: Constants.regularFontSize,
     textAlign: "center",
   },
 });

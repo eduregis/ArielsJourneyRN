@@ -9,7 +9,7 @@ import BottomSheet, {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 import ArchetypesDetailsSheet from "../sheets/ArchetypeDetails";
-import { Colors } from "../constants/colors";
+import { Colors } from "../constants/constants";
 import { ARCHETYPES } from "../models/archetypes";
 
 function ArchetypesScreen({ navigation }) {

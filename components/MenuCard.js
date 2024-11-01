@@ -1,16 +1,16 @@
 import { ImageBackground, Pressable, StyleSheet, Text } from "react-native";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 
-function MenuCard({ title, menuHandler, disabled }) {
+function MenuCard({ title, menuHandler, disabled, coverImage, card }) {
   return (
     <Pressable
       onPress={menuHandler}
       style={({ pressed }) => [pressed && styles.pressed]}
     >
       <ImageBackground
-        source={require("../assets/images/Ariel_menu_card_game.png")}
+        source={coverImage}
         resizeMode="cover"
-        style={[styles.container, disabled && styles.disabled]}
+        style={[styles.container, card, disabled && styles.disabled]}
       >
         <ImageBackground
           source={require("../assets/ui/Ariel_menu_card_name.png")}
@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   container: {
-    width: 120,
-    height: 275,
     alignItems: "center",
     justifyContent: "flex-end",
     borderTopLeftRadius: 60,
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },

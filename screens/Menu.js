@@ -32,21 +32,25 @@ function MenuScreen({ navigation }) {
     navigation.navigate("Archetypes");
   }
 
+  function goToGallery() {
+    navigation.navigate("Gallery");
+  }
+
   async function getData() {
     setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
 
-    console.log(
-      "Dialogue: ",
-      await asyncStorageHook.getStorageHandler("@dialogue")
-    );
-    console.log(
-      "Archetypes: ",
-      await asyncStorageHook.getStorageHandler("@archetype")
-    );
-    console.log(
-      "Hero`s Journey: ",
-      await asyncStorageHook.getStorageHandler("@herosJourney")
-    );
+    // console.log(
+    //   "Dialogue: ",
+    //   await asyncStorageHook.getStorageHandler("@dialogue")
+    // );
+    // console.log(
+    //   "Archetypes: ",
+    //   await asyncStorageHook.getStorageHandler("@archetype")
+    // );
+    // console.log(
+    //   "Hero`s Journey: ",
+    //   await asyncStorageHook.getStorageHandler("@herosJourney")
+    // );
   }
 
   useEffect(() => {
@@ -62,12 +66,35 @@ function MenuScreen({ navigation }) {
       <View style={styles.menuContainer}>
         <ScrollView horizontal={true}>
           <MenuCard
+            title="Conquistas"
+            menuHandler={goToAchievements}
+            card={styles.terciaryCard}
+            coverImage={require("../assets/images/Ariel_menu_card_achievements.png")}
+          />
+          <MenuCard
+            title="Arquétipos"
+            menuHandler={goToArchetypes}
+            card={styles.secondaryCard}
+            coverImage={require("../assets/images/Ariel_menu_card_archetypes.png")}
+          />
+          <MenuCard
             title={dialogue != 0 ? "Continuar" : "Novo Jogo"}
             menuHandler={goToNewGame}
+            card={styles.mainCard}
+            coverImage={require("../assets/images/Ariel_menu_card_gameplay.png")}
           />
-          <MenuCard title="Jornada do Herói" menuHandler={goToHerosJourney} />
-          <MenuCard title="Arquétipos" menuHandler={goToArchetypes} />
-          <MenuCard title="Conquistas" menuHandler={goToAchievements} />
+          <MenuCard
+            title="Jornada do Herói"
+            menuHandler={goToHerosJourney}
+            card={styles.secondaryCard}
+            coverImage={require("../assets/images/Ariel_menu_card_herosJourney.png")}
+          />
+          <MenuCard
+            title="Galeria"
+            menuHandler={goToGallery}
+            card={styles.terciaryCard}
+            coverImage={require("../assets/images/Ariel_menu_card_gallery.png")}
+          />
         </ScrollView>
       </View>
     </>
@@ -82,5 +109,19 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     alignItems: "center",
     justifyContent: "center",
+  },
+  mainCard: {
+    width: 162,
+    height: 275,
+  },
+  secondaryCard: {
+    width: 112,
+    height: 232,
+    marginTop: 20,
+  },
+  terciaryCard: {
+    width: 112,
+    height: 189,
+    marginTop: 43,
   },
 });

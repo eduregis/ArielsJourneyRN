@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import Slider from "@react-native-community/slider";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 
 function CustomSlider({ text, onChange, value }) {
   return (
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.primary300,
-    fontSize: 21,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },

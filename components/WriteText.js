@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 import { forwardRef, useImperativeHandle } from "react";
 
 function WriteText({ text, coloredStrings, onPress }, ref) {
@@ -33,8 +33,10 @@ function WriteText({ text, coloredStrings, onPress }, ref) {
   }
 
   function onPressHandler() {
-    setIndexState(textArray.length + 1);
-    onPress();
+    if (textIndex + 5 < textArray.length + 1) {
+      setIndexState(textArray.length + 1);
+      onPress();
+    }
   }
 
   function flipCardsHandler() {
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    fontSize: 14,
+    fontSize: Constants.mediumFontSize,
     fontFamily: "macondo-regular",
   },
 

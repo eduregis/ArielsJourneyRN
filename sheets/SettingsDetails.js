@@ -1,13 +1,6 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ImageBackground,
-  Alert,
-} from "react-native";
+import { StyleSheet, Text, View, Image, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 import CustomButton from "../components/CustomButton";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import CustomSlider from "../components/CustomSlider";
@@ -124,7 +117,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary300,
-    fontSize: 21,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 54,

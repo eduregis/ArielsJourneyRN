@@ -6,3 +6,11 @@ export const Colors = {
   background500: "#312638",
   background600: "#1a1a1a",
 };
+
+export const Constants = {
+  smallFontSize: 12,
+  mediumFontSize: 14,
+  regularFontSize: 16,
+  largeFontSize: 20,
+  titleFontSize: 32,
+};

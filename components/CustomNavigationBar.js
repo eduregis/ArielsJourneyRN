@@ -6,7 +6,7 @@ import {
   View,
   Pressable,
 } from "react-native";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 import { useDispatch } from "react-redux";
 import { openSettings } from "../store/redux/settingsTrigger";
 
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary100,
-    fontSize: 20,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
   },
   buttonContainer: {

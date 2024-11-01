@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect } from "react";
 import { ARCHETYPES } from "../models/archetypes";
-import { Colors } from "../constants/colors";
+import { Colors, Constants } from "../constants/constants";
 import ArchetypeCard from "../components/ArchetypeCard";
 
 function ArchetypesDetailsSheet({ index }) {
   var card = ARCHETYPES[index];
 
   useEffect(() => {
-    console.log(index);
+    // console.log(index);
   }, [index]);
 
   var selectedCardImage = <View />;
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary300,
-    fontSize: 21,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
     marginHorizontal: 54,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 3,
     marginTop: 16,
     color: Colors.primary300,
-    fontSize: 16,
+    fontSize: Constants.regularFontSize,
     textAlign: "center",
   },
 });
