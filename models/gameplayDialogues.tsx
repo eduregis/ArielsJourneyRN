@@ -6,7 +6,7 @@ import GameplayStage from "./gameplayStage";
 // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
 
 export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
-  "stateId": 0,
+  "stageId": 0,
   "descriptionText": "OrdinaryWorld",
     "dialogues": [
     {
@@ -146,8 +146,8 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardText": '"Não me trate como criança." ',
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
-      "nextFirstDialogueId": 10,
-      "nextSecondDialogueId": 11,
+      "nextFirstDialogueId": 0,
+      "nextSecondDialogueId": 0,
       "soundTrigger": null,
       "soundLoop": false,
       "achievementTrigger": null,
@@ -161,8 +161,8 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardText": '"Não me trate como criança." ',
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
-      "nextFirstDialogueId": 10,
-      "nextSecondDialogueId": 11,
+      "nextFirstDialogueId": 0,
+      "nextSecondDialogueId": 0,
       "soundTrigger": null,
       "soundLoop": false,
       "achievementTrigger": null,
@@ -170,10 +170,12 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "coloredStrings": []
     },
   ]
+  ,
+  "nextStageId": 1
 }
 
 export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
-  "stateId": 0,
+  "stageId": 0,
   "descriptionText": "OrdinaryWorld",
     "dialogues": [
       {
@@ -192,4 +194,6 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "coloredStrings": [] // Se tiver alguma cor em uma palavra, colocar a cor e index da palavra aqui
     },
   ]
+  ,
+  "nextStageId": 1
 }

@@ -3,6 +3,7 @@ import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_ORDINARYWORLD_DIALOGUES } from "../models/gameplayDialogues";
+import { GAMEPLAY_STAGES } from "../models/gameplayStages";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
   max,
@@ -47,8 +48,7 @@ function Gameplay({ navigation }) {
 
   // MARK: - Observables
   useEffect(() => {
-    setData(GAMEPLAY_ORDINARYWORLD_DIALOGUES.dialogues);
-    soundAmbienceRef.current.playMusicHandler();
+    setupStage();
   }, []);
 
   useEffect(() => {
@@ -56,6 +56,13 @@ function Gameplay({ navigation }) {
   }, [data]);
 
   // MARK: - Functions
+  async function setupStage(){
+    const stageId = await asyncStorageHook.getStorageHandler("@stage");
+    var stage = GAMEPLAY_STAGES[stageId]
+    setData(stage.dialogues);
+    soundAmbienceRef.current.playMusicHandler();
+  }
+
   async function setupInitial() {
     const result = await asyncStorageHook.getStorageHandler("@dialogue");
     setActualDialogueId(result);
@@ -116,6 +123,9 @@ function Gameplay({ navigation }) {
   }
 
   function setupNextDialogue(nextDialogueId) {
+    if (nextDialogueId == 0) {
+      
+    }
     setTimeout(function () {
       translateCards(0);
       setTextIsComplete(false);

@@ -24,22 +24,22 @@ function SettingsDetails() {
   }
 
   async function resetGameHandler() {
-    await asyncStorageHook.setStorageHandler("@state", 0);
+    await asyncStorageHook.setStorageHandler("@stage", 0);
     await asyncStorageHook.setStorageHandler("@dialogue", 0);
     await asyncStorageHook.setStorageHandler("@archetype", 0);
     await asyncStorageHook.setStorageHandler("@herosJourney", 0);
   }
 
-  function ambienceChange(progress) {
-    asyncStorageHook.setStorageHandler("@ambienceVolume", progress);
+  async function ambienceChange(progress) {
+    await asyncStorageHook.setStorageHandler("@ambienceVolume", progress);
   }
 
-  function musicChange(progress) {
-    asyncStorageHook.setStorageHandler("@musicVolume", progress);
+  async function musicChange(progress) {
+    await asyncStorageHook.setStorageHandler("@musicVolume", progress);
   }
 
-  function effectChange(progress) {
-    asyncStorageHook.setStorageHandler("@effectVolume", progress);
+  async function effectChange(progress) {
+    await asyncStorageHook.setStorageHandler("@effectVolume", progress);
   }
 
   useEffect(() => {

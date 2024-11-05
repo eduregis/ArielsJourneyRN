@@ -1,18 +1,21 @@
 import GameplayDialogue from "./gameplayDialogue";
 
 class GameplayStage {
-    stateId: number;
+    stageId: number;
     descriptionText: string;
     dialogues: GameplayDialogue[];
+    nextStageId: number;
   
     constructor(
-        stateId: number,
-      descriptionText: string,
-      dialogues: GameplayDialogue[],
+        stageId: number,
+        descriptionText: string,
+        dialogues: GameplayDialogue[],
+        nextStageId: number
     ) {
-      this.stateId = stateId;
+      this.stageId = stageId;
       this.descriptionText = descriptionText;
       this.dialogues = dialogues;
+      this.nextStageId = nextStageId
     }
   }
   

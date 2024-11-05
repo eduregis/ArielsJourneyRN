@@ -38,8 +38,20 @@ function MenuScreen({ navigation }) {
   }
 
   async function getData() {
-    setState(await asyncStorageHook.getStorageHandler("@state"));
+    setState(await asyncStorageHook.getStorageHandler("@stage"));
     setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
+
+    var build = await asyncStorageHook.getStorageHandler("@firstBuild")
+
+    if (build == null) {
+      await asyncStorageHook.setStorageHandler("@stage", 0);
+      await asyncStorageHook.setStorageHandler("@dialogue", 0);
+      await asyncStorageHook.setStorageHandler("@archetype", 0);
+      await asyncStorageHook.setStorageHandler("@herosJourney", 0);
+      await asyncStorageHook.setStorageHandler("@ambienceVolume", 1);
+      await asyncStorageHook.setStorageHandler("@musicVolume", 1);
+      await asyncStorageHook.setStorageHandler("@effectVolume", 1);
+    }
 
     // console.log(
     //   "Dialogue: ",
