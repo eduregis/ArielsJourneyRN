@@ -51,12 +51,13 @@ function MenuScreen({ navigation }) {
       await asyncStorageHook.setStorageHandler("@ambienceVolume", 1);
       await asyncStorageHook.setStorageHandler("@musicVolume", 1);
       await asyncStorageHook.setStorageHandler("@effectVolume", 1);
+      await asyncStorageHook.setStorageHandler("@firstBuild", true)
     }
 
-    // console.log(
-    //   "Dialogue: ",
-    //   await asyncStorageHook.getStorageHandler("@dialogue")
-    // );
+    //console.log(
+    //  "Dialogue: ",
+    //  await asyncStorageHook.getStorageHandler("@dialogue")
+    //);
   }
 
   useEffect(() => {

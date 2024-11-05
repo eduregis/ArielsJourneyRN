@@ -2,7 +2,6 @@ import { ImageBackground, StyleSheet, View } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
-import { GAMEPLAY_ORDINARYWORLD_DIALOGUES } from "../models/gameplayDialogues";
 import { GAMEPLAY_STAGES } from "../models/gameplayStages";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
@@ -67,6 +66,7 @@ function Gameplay({ navigation }) {
     const result = await asyncStorageHook.getStorageHandler("@dialogue");
     setActualDialogueId(result);
     setTimeout(function () {
+      setShowDialogue(true);
       translateCards(1);
     }, 500);
   }
@@ -124,14 +124,31 @@ function Gameplay({ navigation }) {
 
   function setupNextDialogue(nextDialogueId) {
     if (nextDialogueId == 0) {
-      
+      setupNextStage()
+    } else {
+      setTimeout(function () {
+        translateCards(0);
+        setTextIsComplete(false);
+        setCardIsSelected(false);
+        showNextDialogue(nextDialogueId);
+        writeLetterRef.current.clearTextHandler();
+      }, 500);
     }
-    setTimeout(function () {
-      translateCards(0);
-      setTextIsComplete(false);
-      setCardIsSelected(false);
-      showNextDialogue(nextDialogueId);
-      writeLetterRef.current.clearTextHandler();
+  }
+
+  async function setupNextStage() {
+      await asyncStorageHook.setStorageHandler("@dialogue", 0);
+      const stageId = await asyncStorageHook.getStorageHandler("@stage");
+      var stage = GAMEPLAY_STAGES[stageId]
+      await asyncStorageHook.setStorageHandler("@stage", stage.nextStageId);
+      var newStage = GAMEPLAY_STAGES[stage.nextStageId]
+      setTimeout(function () {
+        setShowDialogue(false);
+        translateCards(0);
+        setTextIsComplete(false);
+        setCardIsSelected(false);
+        writeLetterRef.current.clearTextHandler();
+        setData(newStage.dialogues);
     }, 500);
   }
 
