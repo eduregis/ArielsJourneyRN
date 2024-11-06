@@ -3,8 +3,8 @@ class GameplayDialogue {
     descriptionText: string;
     firstCardText: string;
     secondCardText: string;
-    firstCardImageName: any;
-    secondCardImageName: any;
+    firstCardImageName: any | null;
+    secondCardImageName: any | null;
     nextFirstDialogueId: number;
     nextSecondDialogueId: number;
     soundTrigger: string | null;
@@ -20,8 +20,8 @@ class GameplayDialogue {
       descriptionText: string,
       firstCardText: string,
       secondCardText: string,
-      firstCardImageName: any,
-      secondCardImageName: any,
+      firstCardImageName: any | null,
+      secondCardImageName: any | null,
       nextFirstDialogueId: number,
       nextSecondDialogueId: number,
       soundTrigger: string | null,

@@ -92,9 +92,17 @@ function Gameplay({ navigation }) {
 
   function flipCards() {
     if (!textIsComplete) {
-      leftCardRef.current.flipCardHandler();
-      rightCardRef.current.flipCardHandler();
+      if (getDialogue(actualDialogueId)?.firstCardImageName != null) {
+        leftCardRef.current.flipCardHandler();
+        rightCardRef.current.flipCardHandler();
+      }
       setTextIsComplete(true);
+    } else if (getDialogue(actualDialogueId)?.firstCardImageName == null) {
+      setCardIsSelected(true);
+      setTimeout(function () {
+        translateCards(2);
+        setupNextDialogue(getDialogue(actualDialogueId).nextFirstDialogueId);
+      }, 500);
     }
   }
 
@@ -195,9 +203,36 @@ function Gameplay({ navigation }) {
   }
 
   // MARK: - View
-
   var content = <View />;
   var soundEffectTrigger = <View />;
+  var firstCard = <View />;
+  var secondCard = <View />;
+
+  if (getDialogue(actualDialogueId)?.firstCardImageName != null) {
+    firstCard = (
+        <View style={styles.cardContainer}>
+          <GameplayCard
+            image={getDialogue(actualDialogueId).firstCardImageName}
+            text={getDialogue(actualDialogueId).firstCardText}
+            selectHandler={selectLeftCard}
+            ref={leftCardRef}
+          />
+        </View>
+      )
+  }
+
+  if (getDialogue(actualDialogueId)?.secondCardImageName != null) {
+    secondCard = (
+      <View style={styles.cardContainer}>
+        <GameplayCard
+          image={getDialogue(actualDialogueId).secondCardImageName}
+          text={getDialogue(actualDialogueId).secondCardText}
+          selectHandler={selectRightCard}
+          ref={rightCardRef}
+        />
+      </View>
+      )
+  }
 
   if (actualDialogueId != null && getDialogue(actualDialogueId)) {
     content = (
@@ -208,14 +243,7 @@ function Gameplay({ navigation }) {
           translateAnimatedStyles,
         ]}
       >
-        <View style={styles.cardContainer}>
-          <GameplayCard
-            image={getDialogue(actualDialogueId).firstCardImageName}
-            text={getDialogue(actualDialogueId).firstCardText}
-            selectHandler={selectLeftCard}
-            ref={leftCardRef}
-          />
-        </View>
+        {firstCard}
         <View style={styles.letterContainer}>
           <ImageBackground
             style={[styles.letter, styles.shadowContent]}
@@ -230,14 +258,7 @@ function Gameplay({ navigation }) {
             />
           </ImageBackground>
         </View>
-        <View style={styles.cardContainer}>
-          <GameplayCard
-            image={getDialogue(actualDialogueId).secondCardImageName}
-            text={getDialogue(actualDialogueId).secondCardText}
-            selectHandler={selectRightCard}
-            ref={rightCardRef}
-          />
-        </View>
+        {secondCard}
       </Animated.View>
     );
   }
