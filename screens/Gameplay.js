@@ -21,6 +21,7 @@ function Gameplay({ navigation }) {
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
   const [actualDialogueId, setActualDialogueId] = useState(null);
+  const [background, setBackground] = useState(null);
   const asyncStorageHook = useAsyncStorage();
   const leftCardRef = useRef();
   const rightCardRef = useRef();
@@ -47,6 +48,7 @@ function Gameplay({ navigation }) {
 
   // MARK: - Observables
   useEffect(() => {
+    setBackground(require("../assets/ui/Ariel_gameplay_bkg_002.png"));
     setupStage();
   }, []);
 
@@ -59,6 +61,7 @@ function Gameplay({ navigation }) {
     const stageId = await asyncStorageHook.getStorageHandler("@stage");
     var stage = GAMEPLAY_STAGES[stageId]
     setData(stage.dialogues);
+    setBackground(stage.backgroundImage);
     soundAmbienceRef.current.playMusicHandler();
   }
 
@@ -157,6 +160,7 @@ function Gameplay({ navigation }) {
         setCardIsSelected(false);
         writeLetterRef.current.clearTextHandler();
         setData(newStage.dialogues);
+        setBackground(newStage.backgroundImage);
     }, 500);
   }
 
@@ -275,7 +279,7 @@ function Gameplay({ navigation }) {
   return (
     <>
       <ImageBackground
-        source={require("../assets/ui/Ariel_gameplay_bkg_001.png")}
+        source={background}
         style={styles.container}
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />

@@ -5,7 +5,7 @@ import GameplayStage from "./gameplayStage";
 // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
 
 export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
-  "stageId": 0,
+  "stageId": 1,
   "descriptionText": "OrdinaryWorld",
     "dialogues": [
     {
@@ -184,12 +184,12 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "coloredStrings": []
     },
   ],
-  "nextStageId": 1,
+  "nextStageId": 0,
   "backgroundImage": require("../assets/ui/Ariel_gameplay_bkg_001.png")
 }
 
 export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
-  "stageId": 1,
+  "stageId": 0,
   "descriptionText": "OrdinaryWorld",
     "dialogues": [
       {
