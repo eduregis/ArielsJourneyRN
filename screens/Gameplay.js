@@ -2,7 +2,7 @@ import { ImageBackground, StyleSheet, View } from "react-native";
 import CustomNavigationBar from "../components/CustomNavigationBar";
 import GameplayCard from "../components/GameplayCard";
 import { useEffect, useRef, useState } from "react";
-import { GAMEPLAY_DIALOGUES } from "../models/gameplayDialogues";
+import { GAMEPLAY_STAGES } from "../models/gameplayStages";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
   max,
@@ -16,11 +16,12 @@ import SoundManager from "../components/SoundManager";
 
 function Gameplay({ navigation }) {
   // MARK: - Variables
-  const data = GAMEPLAY_DIALOGUES;
+  const [data, setData] = useState([]);
   const [showDialogue, setShowDialogue] = useState(true);
   const [textIsComplete, setTextIsComplete] = useState(false);
   const [cardIsSelected, setCardIsSelected] = useState(false);
   const [actualDialogueId, setActualDialogueId] = useState(null);
+  const [background, setBackground] = useState(null);
   const asyncStorageHook = useAsyncStorage();
   const leftCardRef = useRef();
   const rightCardRef = useRef();
@@ -45,16 +46,30 @@ function Gameplay({ navigation }) {
     };
   });
 
-  // MARK: - Functions
+  // MARK: - Observables
+  useEffect(() => {
+    setBackground(require("../assets/ui/Ariel_gameplay_bkg_002.png"));
+    setupStage();
+  }, []);
+
   useEffect(() => {
     setupInitial();
+  }, [data]);
+
+  // MARK: - Functions
+  async function setupStage(){
+    const stageId = await asyncStorageHook.getStorageHandler("@stage");
+    var stage = GAMEPLAY_STAGES[stageId]
+    setData(stage.dialogues);
+    setBackground(stage.backgroundImage);
     soundAmbienceRef.current.playMusicHandler();
-  }, []);
+  }
 
   async function setupInitial() {
     const result = await asyncStorageHook.getStorageHandler("@dialogue");
     setActualDialogueId(result);
     setTimeout(function () {
+      setShowDialogue(true);
       translateCards(1);
     }, 500);
   }
@@ -80,9 +95,17 @@ function Gameplay({ navigation }) {
 
   function flipCards() {
     if (!textIsComplete) {
-      leftCardRef.current.flipCardHandler();
-      rightCardRef.current.flipCardHandler();
+      if (getDialogue(actualDialogueId)?.firstCardImageName != null) {
+        leftCardRef.current.flipCardHandler();
+        rightCardRef.current.flipCardHandler();
+      }
       setTextIsComplete(true);
+    } else if (getDialogue(actualDialogueId)?.firstCardImageName == null) {
+      setCardIsSelected(true);
+      setTimeout(function () {
+        translateCards(2);
+        setupNextDialogue(getDialogue(actualDialogueId).nextFirstDialogueId);
+      }, 500);
     }
   }
 
@@ -111,12 +134,33 @@ function Gameplay({ navigation }) {
   }
 
   function setupNextDialogue(nextDialogueId) {
-    setTimeout(function () {
-      translateCards(0);
-      setTextIsComplete(false);
-      setCardIsSelected(false);
-      showNextDialogue(nextDialogueId);
-      writeLetterRef.current.clearTextHandler();
+    if (nextDialogueId == 0) {
+      setupNextStage()
+    } else {
+      setTimeout(function () {
+        translateCards(0);
+        setTextIsComplete(false);
+        setCardIsSelected(false);
+        showNextDialogue(nextDialogueId);
+        writeLetterRef.current.clearTextHandler();
+      }, 500);
+    }
+  }
+
+  async function setupNextStage() {
+      await asyncStorageHook.setStorageHandler("@dialogue", 0);
+      const stageId = await asyncStorageHook.getStorageHandler("@stage");
+      var stage = GAMEPLAY_STAGES[stageId]
+      await asyncStorageHook.setStorageHandler("@stage", stage.nextStageId);
+      var newStage = GAMEPLAY_STAGES[stage.nextStageId]
+      setTimeout(function () {
+        setShowDialogue(false);
+        translateCards(0);
+        setTextIsComplete(false);
+        setCardIsSelected(false);
+        writeLetterRef.current.clearTextHandler();
+        setData(newStage.dialogues);
+        setBackground(newStage.backgroundImage);
     }, 500);
   }
 
@@ -163,9 +207,36 @@ function Gameplay({ navigation }) {
   }
 
   // MARK: - View
-
   var content = <View />;
   var soundEffectTrigger = <View />;
+  var firstCard = <View />;
+  var secondCard = <View />;
+
+  if (getDialogue(actualDialogueId)?.firstCardImageName != null) {
+    firstCard = (
+        <View style={styles.cardContainer}>
+          <GameplayCard
+            image={getDialogue(actualDialogueId).firstCardImageName}
+            text={getDialogue(actualDialogueId).firstCardText}
+            selectHandler={selectLeftCard}
+            ref={leftCardRef}
+          />
+        </View>
+      )
+  }
+
+  if (getDialogue(actualDialogueId)?.secondCardImageName != null) {
+    secondCard = (
+      <View style={styles.cardContainer}>
+        <GameplayCard
+          image={getDialogue(actualDialogueId).secondCardImageName}
+          text={getDialogue(actualDialogueId).secondCardText}
+          selectHandler={selectRightCard}
+          ref={rightCardRef}
+        />
+      </View>
+      )
+  }
 
   if (actualDialogueId != null && getDialogue(actualDialogueId)) {
     content = (
@@ -176,14 +247,7 @@ function Gameplay({ navigation }) {
           translateAnimatedStyles,
         ]}
       >
-        <View style={styles.cardContainer}>
-          <GameplayCard
-            image={getDialogue(actualDialogueId).firstCardImageName}
-            text={getDialogue(actualDialogueId).firstCardText}
-            selectHandler={selectLeftCard}
-            ref={leftCardRef}
-          />
-        </View>
+        {firstCard}
         <View style={styles.letterContainer}>
           <ImageBackground
             style={[styles.letter, styles.shadowContent]}
@@ -198,14 +262,7 @@ function Gameplay({ navigation }) {
             />
           </ImageBackground>
         </View>
-        <View style={styles.cardContainer}>
-          <GameplayCard
-            image={getDialogue(actualDialogueId).secondCardImageName}
-            text={getDialogue(actualDialogueId).secondCardText}
-            selectHandler={selectRightCard}
-            ref={rightCardRef}
-          />
-        </View>
+        {secondCard}
       </Animated.View>
     );
   }
@@ -222,7 +279,7 @@ function Gameplay({ navigation }) {
   return (
     <>
       <ImageBackground
-        source={require("../assets/ui/Ariel_gameplay_bkg.png")}
+        source={background}
         style={styles.container}
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />

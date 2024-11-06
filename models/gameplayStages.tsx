@@ -1,0 +1,7 @@
+import GameplayStage from "./gameplayStage";
+import { GAMEPLAY_ORDINARYWORLD_DIALOGUES, GAMEPLAY_CALLTOADVENTURE__DIALOGUES } from "./gameplayDialogues";
+
+export const GAMEPLAY_STAGES: GameplayStage[] = [
+    GAMEPLAY_CALLTOADVENTURE__DIALOGUES,
+    GAMEPLAY_ORDINARYWORLD_DIALOGUES,
+]

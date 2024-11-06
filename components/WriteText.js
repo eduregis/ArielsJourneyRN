@@ -33,7 +33,7 @@ function WriteText({ text, coloredStrings, onPress }, ref) {
   }
 
   function onPressHandler() {
-    if (textIndex + 5 < textArray.length + 1) {
+    if (textIndex + 5 < textArray.length + 1 || textIndex == undefined) {
       setIndexState(textArray.length + 1);
       onPress();
     }
