@@ -275,7 +275,7 @@ function Gameplay({ navigation }) {
   return (
     <>
       <ImageBackground
-        source={require("../assets/ui/Ariel_gameplay_bkg.png")}
+        source={require("../assets/ui/Ariel_gameplay_bkg_001.png")}
         style={styles.container}
       >
         <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />

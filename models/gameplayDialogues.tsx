@@ -183,9 +183,9 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "triggerArray": [],
       "coloredStrings": []
     },
-  ]
-  ,
-  "nextStageId": 1
+  ],
+  "nextStageId": 1,
+  "backgroundImage": require("../assets/ui/Ariel_gameplay_bkg_001.png")
 }
 
 export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
@@ -224,5 +224,6 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
     },
   ]
   ,
-  "nextStageId": 1
+  "nextStageId": 1,
+  "backgroundImage": require("../assets/ui/Ariel_gameplay_bkg_002.png")
 }
