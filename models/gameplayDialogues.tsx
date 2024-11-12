@@ -18,8 +18,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 1, // ir para o dialogue referente a este id, se selecionar o primeiro card
       "nextSecondDialogueId": 2, // ir para o dialogue referente a este id, se selecionar o segundo card
       "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
-      "soundLoop": false, // Se for um som que fique repetindo, deixar como true aqui
-      "achievementTrigger": null, // Ativar diversos triggers, colocar o nome referente nesse array
       "triggerArray": [], // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
       "coloredStrings": [] // Se tiver alguma cor em uma palavra, colocar a cor e index da palavra aqui
     },
@@ -33,8 +31,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 2,
       "nextSecondDialogueId": 2,
       "soundTrigger": require("../assets/sounds/Ariel_sound_dialogue001.mp3"),
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": ["archetype_1"],
       "coloredStrings": []
     },
@@ -48,8 +44,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 3,
       "nextSecondDialogueId": 3,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": ["herosJourney_1"],
       "coloredStrings": [
         {
@@ -68,8 +62,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 4,
       "nextSecondDialogueId": 4,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -83,8 +75,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 5,
       "nextSecondDialogueId": 5,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -98,8 +88,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 6,
       "nextSecondDialogueId": 7,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": [
         {
@@ -118,8 +106,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 7,
       "nextSecondDialogueId": 7,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -133,8 +119,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 8,
       "nextSecondDialogueId": 8,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -148,8 +132,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 9,
       "nextSecondDialogueId": 10,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -163,8 +145,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 11,
       "nextSecondDialogueId": 11,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -178,8 +158,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 12,
       "nextSecondDialogueId": 12,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -193,8 +171,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 10,
       "nextSecondDialogueId": 10,
       "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -217,9 +193,7 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"), // nome da imagem da segunda carta
       "nextFirstDialogueId": 1, // ir para o dialogue referente a este id, se selecionar o primeiro card
       "nextSecondDialogueId": 0, // ir para o dialogue referente a este id, se selecionar o segundo card
-      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
-      "soundLoop": false, // Se for um som que fique repetindo, deixar como true aqui
-      "achievementTrigger": null, // Ativar diversos triggers, colocar o nome referente nesse array
+      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui // Se for um som que fique repetindo, deixar como true aqui // Ativar diversos triggers, colocar o nome referente nesse array
       "triggerArray": [], // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
       "coloredStrings": [] // Se tiver alguma cor em uma palavra, colocar a cor e index da palavra aqui
     },
@@ -232,9 +206,7 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 0, 
       "nextSecondDialogueId": 0,
-      "soundTrigger": null,
-      "soundLoop": false, 
-      "achievementTrigger": null,
+      "soundTrigger": null, 
       "triggerArray": [],
       "coloredStrings": []
     },

@@ -8,8 +8,6 @@ class GameplayDialogue {
     nextFirstDialogueId: number;
     nextSecondDialogueId: number;
     soundTrigger: string | null;
-    soundLoop: boolean;
-    achievementTrigger: string | null;
     triggerArray: string[];
     coloredStrings: { 
       stringId: number; color: string; 
@@ -25,8 +23,6 @@ class GameplayDialogue {
       nextFirstDialogueId: number,
       nextSecondDialogueId: number,
       soundTrigger: string | null,
-      soundLoop: boolean,
-      achievementTrigger: string | null,
       triggerArray: string[],
       coloredStrings: { stringId: number; color: string; }[]
     ) {
@@ -39,8 +35,6 @@ class GameplayDialogue {
       this.nextFirstDialogueId = nextFirstDialogueId;
       this.nextSecondDialogueId = nextSecondDialogueId;
       this.soundTrigger = soundTrigger;
-      this.soundLoop = soundLoop;
-      this.achievementTrigger = achievementTrigger;
       this.triggerArray = triggerArray;
       this.coloredStrings = coloredStrings;
     }

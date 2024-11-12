@@ -14,8 +14,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 2,
         "soundTrigger": null, 
-        "soundLoop": false,
-        "achievementTrigger": null,
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -28,9 +26,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 2, 
         "nextSecondDialogueId": 2,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -43,9 +39,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 3, 
         "nextSecondDialogueId": 3,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -58,9 +52,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 4, 
         "nextSecondDialogueId": 4,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -73,9 +65,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 5, 
         "nextSecondDialogueId": 6,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -88,9 +78,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 6, 
         "nextSecondDialogueId": 6,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -103,9 +91,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 7, 
         "nextSecondDialogueId": 7,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -118,9 +104,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 8, 
         "nextSecondDialogueId": 9,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -134,8 +118,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "nextFirstDialogueId": 9,
         "nextSecondDialogueId": 9,
         "soundTrigger": null,
-        "soundLoop": false,
-        "achievementTrigger": null,
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -149,8 +131,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "nextFirstDialogueId": 10,
         "nextSecondDialogueId": 10,
         "soundTrigger": null,
-        "soundLoop": false,
-        "achievementTrigger": null,
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -164,13 +144,10 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "nextFirstDialogueId": 0,
         "nextSecondDialogueId": 0,
         "soundTrigger": null,
-        "soundLoop": false,
-        "achievementTrigger": null,
         "triggerArray": [],
         "coloredStrings": []
       },
-    ]
-    ,
+    ],
     "nextStageId": 1,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_002.png")
   }
@@ -188,9 +165,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 1,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -203,9 +178,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 2, 
         "nextSecondDialogueId": 2,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -218,9 +191,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 3, 
         "nextSecondDialogueId": 4,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -233,9 +204,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 5, 
         "nextSecondDialogueId": 5,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -248,9 +217,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 5, 
         "nextSecondDialogueId": 5,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
@@ -263,14 +230,11 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
-    ]
-    ,
+    ],
     "nextStageId": 2,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_001.png")
   }
@@ -288,14 +252,224 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": null,
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0,
-        "soundTrigger": null,
-        "soundLoop": false, 
-        "achievementTrigger": null,
+        "soundTrigger": null, 
         "triggerArray": [],
         "coloredStrings": []
       },
-    ]
-    ,
-    "nextStageId": 2,
+    ],
+    "nextStageId": 3,
+    "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_002.png")
+  }
+
+  export const GAMEPLAY_ORDINARYWORLD_TRAINING_DIALOGUES: GameplayStage = {
+    "stageId": 3,
+    "descriptionText": "OrdinaryWorld",
+      "dialogues": [
+      {
+        "dialogueId": 0,
+        "descriptionText": 'Seu professor, um homem robusto e experiente, observa-a com um sorriso divertido. Ela é sua aluna mais promissora, e ele não perde a chance de brincar com ela. O som dos treinos ecoa ao seu redor, mas, mesmo em meio à escuridão da guerra, ele consegue manter um espírito leve.\n\n“Hoje, vamos nos concentrar nas mecânicas de luta,” ele começa, sua voz grave misturada a um tom de brincadeira. “Espero que você esteja pronta, Ariel. Não quero que minha estrela se transforme em uma estrela cadente, se é que me entende!”',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 1, 
+        "nextSecondDialogueId": 1,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 1,
+        "descriptionText": 'Ariel sente a adrenalina subir enquanto se prepara. O professor avança com um movimento ágil, brandindo sua espada de madeira em um arco amplo. Ela ergue seu escudo, sentindo o impacto da madeira contra o material leve. O golpe reverbera por seu braço, mas ela se mantém firme, determinada a não ceder.',
+        "firstCardText": 'Esperar e Observar',
+        "secondCardText": 'Atacar Prematuramente', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 2, 
+        "nextSecondDialogueId": 3,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 2,
+        "descriptionText": 'Ariel se posiciona, mantendo a defesa alta, atenta a cada movimento do professor. Ela percebe que ele está confiante, mas uma leve hesitação em seu pé esquerdo a faz pensar que ele pode estar se preparando para um ataque.\n\n“Muito bem, Ariel! Olhos atentos como um falcão. Mas lembre-se, só esperar não é suficiente. O ataque é tão importante quanto a defesa!”',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 4, 
+        "nextSecondDialogueId": 4,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 3,
+        "descriptionText": 'Ariel tenta um ataque direto, lançando sua espada em um golpe rápido. No entanto, o professor se move com facilidade, desviando e contra-atacando. O impacto da madeira em seu escudo faz com que ela se desequilibre um pouco.\n\nResultado: “Você parece uma criança em uma loja de doces, Ariel! Isso não é um passeio. Ataques precipitados não levam à vitória. Vamos de novo!”\n\nEla volta a se posicionar, determinada a fazer melhor.',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 1, 
+        "nextSecondDialogueId": 1,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 4,
+        "descriptionText": 'O professor avança e direciona um ataque rápido pela direita! Ariel...',
+        "firstCardText": "Defletir Ataque Rápido",
+        "secondCardText": "Desviar", 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 5, 
+        "nextSecondDialogueId": 6,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 5,
+        "descriptionText": 'O professor inicia uma série de ataques rápidos, suas lâminas de madeira cortando o ar com agilidade. Ariel se concentra, movendo-se para o lado e desviando com o escudo. Cada defesa bem-sucedida a faz sentir-se mais confiante, quase dançando com o ataque dele.\n\nResultado: “Ah, isso é que é uma defesa! Você quase me fez acreditar que eu sou o alvo aqui! Continue assim e talvez eu tenha que me preparar melhor!”',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 7, 
+        "nextSecondDialogueId": 7,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 6,
+        "descriptionText": 'Não foi rápido o suficiente, a espada de madeira para a um centímetro de seu pescoço.\n\n“Escolha com cuidado! Seu escudo poderia aguentar um ataque como rápido como esse. Nem sempre você vai ter tempo de desviar. Outra vez!”',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 4, 
+        "nextSecondDialogueId": 4,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 7,
+        "descriptionText": 'O professor continua a atacar, e Ariel começa a perceber um padrão em seus movimentos. Quando ele ataca, seu olhar se desvia momentaneamente, criando uma oportunidade. Com essa nova percepção, ela decide esperar o momento certo.\n\nCom um golpe ágil, o professor tenta um ataque de cima, mas Ariel ergue seu escudo para bloquear, sentindo a força do impacto. Ela, então, aproveita a abertura e desvia para o lado, atacando rapidamente com sua espada na lateral do professor, pegando-o desprevenido.',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 8, 
+        "nextSecondDialogueId": 8,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 8,
+        "descriptionText": '“Excelente!” exclama seu professor, um sorriso de aprovação no rosto. “Você viu a abertura e se aproveitou dela. O combate é uma dança. Mantenha-se alerta e você sempre encontrará uma maneira de triunfar!”\n\nMotivada pelas palavras dele, Ariel se recolhe, pronta para mais, sabendo que cada sessão de treinamento a aproxima de seu sonho de se tornar uma verdadeira guardiã de Ordon.',
+        "firstCardText": "",
+        "secondCardText": "", 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 0, 
+        "nextSecondDialogueId": 0,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+    ],
+    "nextStageId": 4,
+    "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_001.png")
+  }
+
+  export const GAMEPLAY_ORDINARYWORLD_POSTTRAINING_DIALOGUES: GameplayStage = {
+    "stageId": 4,
+    "descriptionText": "OrdinaryWorld",
+      "dialogues": [
+      {
+        "dialogueId": 0,
+        "descriptionText": 'Após algumas horas de treino, o treinador se espreguiça e sorri. “Bom, por hoje é só. Você está melhorando bastante! Daqui a pouco, você vai superar a todos nós.” Ele ri enquanto limpa alguns escudos. “Ah, e diga para o seu irmão que já está na hora de ele começar a treinar.”',
+        "firstCardText": '“Vou dizer”',
+        "secondCardText": '“Eu vou defendê-lo”', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 1, 
+        "nextSecondDialogueId": 2,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 1,
+        "descriptionText": 'Diga mesmo. Esses sequestros estão me deixando muito preocupado… Várias pessoas já foram levadas, e ainda nem sabemos o motivo. Pobre Jamie…”',
+        "firstCardText": '',
+        "secondCardText": '', 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 3, 
+        "nextSecondDialogueId": 3,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 2,
+        "descriptionText": 'Não seja tão arrogante, Ariel. Esses sequestros estão me deixando muito preocupado… Várias pessoas já foram levadas, e ainda nem sabemos o motivo. Pobre Jamie…”',
+        "firstCardText": '',
+        "secondCardText": '', 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 3, 
+        "nextSecondDialogueId": 3,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 3,
+        "descriptionText": 'O Treinador parece se perder em pensamentos, e continua esfregando os escudos com um pano gasto. Ariel, pronta para sair com seu escudo e espada de madeira, decide:',
+        "firstCardText": 'Se despedir',
+        "secondCardText": '“Guarda Felipe?”', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 4, 
+        "nextSecondDialogueId": 5,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 4,
+        "descriptionText": '“Ah, até amanhã, Ariel! Treine em casa e, por favor, tente chegar no horário na próxima.” Ele sorri fazendo o comentário. “Prometo que vou tentar!” Ariel sorri e se despede, e logo segue seu caminho.',
+        "firstCardText": '',
+        "secondCardText": '', 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 0, 
+        "nextSecondDialogueId": 0,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+      {
+        "dialogueId": 5,
+        "descriptionText": '“Hm? Ah- sim, Felipe. Ele está de guarda na *Torre Sul* hoje. Aquele garoto precisa descansar…”',
+        "firstCardText": '',
+        "secondCardText": '', 
+        "firstCardImageName": null,
+        "secondCardImageName": null,
+        "nextFirstDialogueId": 3, 
+        "nextSecondDialogueId": 3,
+        "soundTrigger": null, 
+        "triggerArray": [],
+        "coloredStrings": []
+      },
+    ],
+    "nextStageId": 5,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_002.png")
   }
