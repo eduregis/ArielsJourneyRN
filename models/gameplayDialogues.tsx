@@ -3,6 +3,8 @@ import GameplayStage from "./gameplayStage";
 // caso precise aumentar o indice de duchbag, só chamar o parâmetro "triggerArray" com "duchbag+1", o parâmetro assim como o achievementTrigger, é opcional.
 // caso chegar num certo Dialogue implique em desbloquear um colecionável relativo a Jornada do Herói, basta colocar "herosJourney_?", com ? sendo o índice do colecionável em questão.
 // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
+// caso chegar nesse Dialogue implique em desbloquear uma conquista, basta colocar "achievement_?", com ? sendo o índice da conquista em questão.
+// caso chegar nesse Dialogue implique em ir para algum estágio diferente diferente do padrão, basta colocar "stage_?", com ? sendo o índice do estágio em questão.
 
 export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
   "stageId": 1,
@@ -43,7 +45,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": null,
       "nextFirstDialogueId": 3,
       "nextSecondDialogueId": 3,
-      "soundTrigger": null,
       "triggerArray": ["herosJourney_1"],
       "coloredStrings": [
         {
@@ -61,7 +62,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 4,
       "nextSecondDialogueId": 4,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -74,7 +74,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 5,
       "nextSecondDialogueId": 5,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -87,7 +86,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 6,
       "nextSecondDialogueId": 7,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": [
         {
@@ -105,7 +103,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 7,
       "nextSecondDialogueId": 7,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -118,7 +115,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 8,
       "nextSecondDialogueId": 8,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -131,7 +127,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 9,
       "nextSecondDialogueId": 10,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -144,7 +139,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 11,
       "nextSecondDialogueId": 11,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -157,7 +151,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 12,
       "nextSecondDialogueId": 12,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -170,7 +163,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": null,
       "nextFirstDialogueId": 10,
       "nextSecondDialogueId": 10,
-      "soundTrigger": null,
       "triggerArray": [],
       "coloredStrings": []
     },
@@ -205,8 +197,7 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 0, 
-      "nextSecondDialogueId": 0,
-      "soundTrigger": null, 
+      "nextSecondDialogueId": 0, 
       "triggerArray": [],
       "coloredStrings": []
     },
