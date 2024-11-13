@@ -110,7 +110,7 @@ function GameplayCard(props, ref) {
               style={styles.frontCardImage}
             />
             <View style={styles.titleContainer}>
-              <Text style={styles.title}>{props.text}</Text>
+              <Text style={styles.title}>{props.text ?? ''}</Text>
             </View>
           </ImageBackground>
         </Pressable>

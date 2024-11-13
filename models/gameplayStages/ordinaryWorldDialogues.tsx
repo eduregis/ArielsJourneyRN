@@ -115,8 +115,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 10,
         "descriptionText": 'Henry assentiu, um sorriso aliviado surgindo em seu rosto. “Eu só quero que você volte para casa, e que eu possa te ouvir reclamar das aulas de combate.”\n\nOs irmãos se alimentaram enquanto conversavam sobre os mais diversos assuntos, desde as novas armas que Henry estava forjando até os rumores da guerra que chegavam até a vila.\n\n“Você viu os novos recrutas? Parecem tão inexperientes…” Ariel comentou, um fio de preocupação em sua voz.\n\n“Eles estão tentando. Cada um deles é como você, tentando fazer a diferença,” Henry respondeu, sua voz encorajadora. “Mas você precisa se lembrar que também é importante cuidar de si mesma. A guerra não é um jogo.”\n\nAriel assentiu, sabendo que ele estava certo.',
-        "firstCardText": '',
-        "secondCardText": '',
         "nextFirstDialogueId": 0,
         "nextSecondDialogueId": 0,
         "triggerArray": []
@@ -133,16 +131,12 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 0,
         "descriptionText": "Depois de alguns minutos caminhando na estrada de barro, Ariel chega ao centro da cidade.\n\nA vila de Ordon, outrora vibrante e cheia de vida, agora carrega as cicatrizes da guerra. As casas simples, pequenas e uma vez acolhedoras, estão marcadas por desespero e preocupação. Os altos muros, que antes simbolizavam proteção, agora parecem limitar a esperança. A vida continua, mas a alegria foi substituída pela cautela. Os sorrisos são escassos, e as risadas infantis, que antes ecoavam pela vila, agora são um sussurro distante.",
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 1
       },
       {
         "dialogueId": 1,
         "descriptionText": 'Respirando fundo, ela inicia sua caminhada até o campo de treinamento, passando por dentro da feira popular. A atmosfera é tensa, e o murmúrio dos compradores se mistura com o lamento por aqueles que partiram para a guerra. Em meio a esse cenário, Ariel reconhece a Senhora Endicott, que parece desesperadamente tentar chamar a atenção de qualquer um que a pudesse ouvir. O olhar da mulher reflete a dor de uma mãe preocupada.\n\nAriel se aproxima, hesitante. Não se viam há anos, e o tempo parecia ter mudado mais a Senhora Endicott do que a própria vila.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 2, 
         "nextSecondDialogueId": 2
       },
@@ -159,24 +153,18 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 3,
         "descriptionText": 'A expressão da Senhora Endicott se transforma em desapontamento. “Você… é muito cruel.” Ela se afasta, murmurando em desapontamento, e Ariel se sente mal por suas palavras.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 5, 
         "nextSecondDialogueId": 5
       },
       {
         "dialogueId": 4,
         "descriptionText": 'A expressão da Senhora Endicott suaviza, e seus olhos brilham com gratidão. “Obrigada, querida! Meu filho, Jamie… Ele desapareceu há uma semana. Se você encontrar um guarda, pergunte se eles já ouviram algo sobre ele.”\n\n“Claro, farei isso!” responde Ariel, determinada. A mulher a observa, aliviada por alguém se importar. “Obrigada, querida. Preciso ir, mas espero que você encontre algo.”\n\nAriel acena enquanto a Senhora Endicott se afasta rapidamente em direção a outro guarda que passa, ainda preocupada, mas pelo menos um pouco mais aliviada.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 5, 
         "nextSecondDialogueId": 5
       },
       {
         "dialogueId": 5,
         "descriptionText": 'Após o encontro, Ariel continua a caminho do campo de treinamento, o pensamento pesado em seu coração. E se ela fosse atrás de Jamie? O que teria acontecido com ele? A bravura que costumava ter agora parece tão distante. Ela já sabe se cuidar, mas será que teria coragem de deixar sua vila e adentrar a escura floresta que a cerca? Será que ela seria forte o suficiente?',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0
       },
@@ -192,8 +180,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 0,
         "descriptionText": 'Seus pensamentos são interrompidos pela voz grave e familiar de seu treinador, um homem com uma aura leve, que tentava manter o moral da turma alto, apesar das circunstâncias sombrias.\n\n“Bom dia, Ariel! Você chegou atrasada, para variar… Mas tudo bem. Está pronta para o treino?”\n\n“Eu nasci pronta!” ela responde, um sorriso aparecendo em seu rosto, mesmo que a preocupação persista em seu coração.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0
       },
@@ -209,8 +195,6 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 0,
         "descriptionText": 'Seu professor, um homem robusto e experiente, observa-a com um sorriso divertido. Ela é sua aluna mais promissora, e ele não perde a chance de brincar com ela. O som dos treinos ecoa ao seu redor, mas, mesmo em meio à escuridão da guerra, ele consegue manter um espírito leve.\n\n“Hoje, vamos nos concentrar nas mecânicas de luta,” ele começa, sua voz grave misturada a um tom de brincadeira. “Espero que você esteja pronta, Ariel. Não quero que minha estrela se transforme em uma estrela cadente, se é que me entende!”',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 1
       },
@@ -227,16 +211,12 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 2,
         "descriptionText": 'Ariel se posiciona, mantendo a defesa alta, atenta a cada movimento do professor. Ela percebe que ele está confiante, mas uma leve hesitação em seu pé esquerdo a faz pensar que ele pode estar se preparando para um ataque.\n\n“Muito bem, Ariel! Olhos atentos como um falcão. Mas lembre-se, só esperar não é suficiente. O ataque é tão importante quanto a defesa!”',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 4, 
         "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 3,
         "descriptionText": 'Ariel tenta um ataque direto, lançando sua espada em um golpe rápido. No entanto, o professor se move com facilidade, desviando e contra-atacando. O impacto da madeira em seu escudo faz com que ela se desequilibre um pouco.\n\nResultado: “Você parece uma criança em uma loja de doces, Ariel! Isso não é um passeio. Ataques precipitados não levam à vitória. Vamos de novo!”\n\nEla volta a se posicionar, determinada a fazer melhor.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 1
       },
@@ -253,32 +233,24 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 5,
         "descriptionText": 'O professor inicia uma série de ataques rápidos, suas lâminas de madeira cortando o ar com agilidade. Ariel se concentra, movendo-se para o lado e desviando com o escudo. Cada defesa bem-sucedida a faz sentir-se mais confiante, quase dançando com o ataque dele.\n\nResultado: “Ah, isso é que é uma defesa! Você quase me fez acreditar que eu sou o alvo aqui! Continue assim e talvez eu tenha que me preparar melhor!”',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 7, 
         "nextSecondDialogueId": 7
       },
       {
         "dialogueId": 6,
         "descriptionText": 'Não foi rápido o suficiente, a espada de madeira para a um centímetro de seu pescoço.\n\n“Escolha com cuidado! Seu escudo poderia aguentar um ataque como rápido como esse. Nem sempre você vai ter tempo de desviar. Outra vez!”',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 4, 
         "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 7,
         "descriptionText": 'O professor continua a atacar, e Ariel começa a perceber um padrão em seus movimentos. Quando ele ataca, seu olhar se desvia momentaneamente, criando uma oportunidade. Com essa nova percepção, ela decide esperar o momento certo.\n\nCom um golpe ágil, o professor tenta um ataque de cima, mas Ariel ergue seu escudo para bloquear, sentindo a força do impacto. Ela, então, aproveita a abertura e desvia para o lado, atacando rapidamente com sua espada na lateral do professor, pegando-o desprevenido.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 8, 
         "nextSecondDialogueId": 8
       },
       {
         "dialogueId": 8,
         "descriptionText": '“Excelente!” exclama seu professor, um sorriso de aprovação no rosto. “Você viu a abertura e se aproveitou dela. O combate é uma dança. Mantenha-se alerta e você sempre encontrará uma maneira de triunfar!”\n\nMotivada pelas palavras dele, Ariel se recolhe, pronta para mais, sabendo que cada sessão de treinamento a aproxima de seu sonho de se tornar uma verdadeira guardiã de Ordon.',
-        "firstCardText": "",
-        "secondCardText": "", 
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0
       },
@@ -304,16 +276,12 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 1,
         "descriptionText": 'Diga mesmo. Esses sequestros estão me deixando muito preocupado… Várias pessoas já foram levadas, e ainda nem sabemos o motivo. Pobre Jamie…”',
-        "firstCardText": '',
-        "secondCardText": '', 
         "nextFirstDialogueId": 3, 
         "nextSecondDialogueId": 3
       },
       {
         "dialogueId": 2,
         "descriptionText": 'Não seja tão arrogante, Ariel. Esses sequestros estão me deixando muito preocupado… Várias pessoas já foram levadas, e ainda nem sabemos o motivo. Pobre Jamie…”',
-        "firstCardText": '',
-        "secondCardText": '', 
         "nextFirstDialogueId": 3, 
         "nextSecondDialogueId": 3
       },
@@ -330,16 +298,12 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       {
         "dialogueId": 4,
         "descriptionText": '“Ah, até amanhã, Ariel! Treine em casa e, por favor, tente chegar no horário na próxima.” Ele sorri fazendo o comentário. “Prometo que vou tentar!” Ariel sorri e se despede, e logo segue seu caminho.',
-        "firstCardText": '',
-        "secondCardText": '', 
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 0
       },
       {
         "dialogueId": 5,
         "descriptionText": '“Hm? Ah- sim, Felipe. Ele está de guarda na *Torre Sul* hoje. Aquele garoto precisa descansar…”',
-        "firstCardText": '',
-        "secondCardText": '', 
         "nextFirstDialogueId": 3, 
         "nextSecondDialogueId": 3
       },
@@ -359,10 +323,41 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardText": 'Se aproximar do senhor.', 
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 2, 
+        "nextSecondDialogueId": 1
+      },
+      {
+        "dialogueId": 1,
+        "descriptionText": 'O velho está tão concentrado em sua oração que não percebe sua presença.',
+        "firstCardText": 'Continuar em direção da Torre.',
+        "secondCardText": 'Escutar.', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 0, 
         "nextSecondDialogueId": 2
       },
+      {
+        "dialogueId": 2,
+        "descriptionText": 'Ariel se concentra e consegue escutar parte de sua súplica: “Pelo fim desta maldita guerra… Eu já não tenho mais o que perder. Meus dois únicos filhos… Quando isso vai acabar?” Ariel se sente mal por invadir um momento tão pessoal, então decide se afastar e continuar em direção à torre.',
+        "nextFirstDialogueId": 0, 
+        "nextSecondDialogueId": 0
+      }
     ],
     "nextStageId": 6,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_001.png")
+  }
+
+  export const GAMEPLAY_ORDINARYWORLD_WATCHTOWER_DIALOGUES: GameplayStage = {
+    "stageId": 6,
+    "descriptionText": "OrdinaryWorld",
+      "dialogues": [
+      {
+        "dialogueId": 0,
+        "descriptionText": 'Ariel se aproxima da grande torre de vigia, localizada em uma das extremidades do muro que circunda a vila de Ordon. Mesmo de longe, ela nota a silhueta familiar de Philip no alto, um olhar atento e determinado no rosto cansado. Ela acena e chama por ele.\n\nPhilip vira ao ouvir sua voz e acena de volta. “Ariel! Suba aqui, mas não posso conversar muito. O dever me chama, como sempre.”',
+        "nextFirstDialogueId": 1, 
+        "nextSecondDialogueId": 1
+      },
+    ],
+    "nextStageId": 0,
+    "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_002.png")
   }

@@ -1,8 +1,8 @@
 class GameplayDialogue {
     dialogueId: number;
     descriptionText: string;
-    firstCardText: string;
-    secondCardText: string;
+    firstCardText?: string;
+    secondCardText?: string;
     firstCardImageName?: any | null;
     secondCardImageName?: any | null;
     nextFirstDialogueId: number;
@@ -17,8 +17,8 @@ class GameplayDialogue {
     constructor(
       dialogueId: number,
       descriptionText: string,
-      firstCardText: string,
-      secondCardText: string,
+      firstCardText: string = '',
+      secondCardText: string = '',
       firstCardImageName: any | null,
       secondCardImageName: any | null,
       nextFirstDialogueId: number,

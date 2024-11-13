@@ -135,7 +135,7 @@ function Gameplay({ navigation }) {
 
   function setupNextDialogue(nextDialogueId) {
     if (nextDialogueId == 0) {
-      setupNextStage()
+      setupNextStage(getDialogue(actualDialogueId)?.differentStage)
     } else {
       setTimeout(function () {
         translateCards(0);
@@ -147,12 +147,12 @@ function Gameplay({ navigation }) {
     }
   }
 
-  async function setupNextStage() {
+  async function setupNextStage(nextStageId) {
       await asyncStorageHook.setStorageHandler("@dialogue", 0);
       const stageId = await asyncStorageHook.getStorageHandler("@stage");
       var stage = GAMEPLAY_STAGES[stageId]
-      await asyncStorageHook.setStorageHandler("@stage", stage.nextStageId);
-      var newStage = GAMEPLAY_STAGES[stage.nextStageId]
+      await asyncStorageHook.setStorageHandler("@stage", nextStageId ?? stage.nextStageId);
+      var newStage = GAMEPLAY_STAGES[nextStageId ?? stage.nextStageId]
       setTimeout(function () {
         setShowDialogue(false);
         translateCards(0);

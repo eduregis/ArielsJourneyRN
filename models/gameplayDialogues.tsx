@@ -4,7 +4,6 @@ import GameplayStage from "./gameplayStage";
 // caso chegar num certo Dialogue implique em desbloquear um colecionável relativo a Jornada do Herói, basta colocar "herosJourney_?", com ? sendo o índice do colecionável em questão.
 // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
 // caso chegar nesse Dialogue implique em desbloquear uma conquista, basta colocar "achievement_?", com ? sendo o índice da conquista em questão.
-// caso chegar nesse Dialogue implique em ir para algum estágio diferente diferente do padrão, basta colocar "stage_?", com ? sendo o índice do estágio em questão.
 
 export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
   "stageId": 1,
@@ -37,10 +36,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
     {
       "dialogueId": 2,
       "descriptionText": 'Ao abrir os olhos, Ariel vê que Henry, seu irmão mais velho, estava chamando da porta. Ele já estava com seu avental sujo, indicando que já estava trabalhando na forja enquanto a irmã dormia.',
-      "firstCardText": "",
-      "secondCardText": "",
-      "firstCardImageName": null,
-      "secondCardImageName": null,
       "nextFirstDialogueId": 3,
       "nextSecondDialogueId": 3,
       "triggerArray": ["herosJourney_1"],
@@ -140,10 +135,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
     {
       "dialogueId": 11,
       "descriptionText": 'Henry assentiu, um sorriso aliviado surgindo em seu rosto. “Eu só quero que você volte para casa, e que eu possa te ouvir reclamar das aulas de combate.”\n\nOs irmãos se alimentaram enquanto conversavam sobre os mais diversos assuntos, desde as novas armas que Henry estava forjando até os rumores da guerra que chegavam até a vila.\n\n“Você viu os novos recrutas? Parecem tão inexperientes…” Ariel comentou, um fio de preocupação em sua voz.\n\n“Eles estão tentando. Cada um deles é como você, tentando fazer a diferença,” Henry respondeu, sua voz encorajadora. “Mas você precisa se lembrar que também é importante cuidar de si mesma. A guerra não é um jogo.”\n\nAriel assentiu, sabendo que ele estava certo.',
-      "firstCardText": '',
-      "secondCardText": '',
-      "firstCardImageName": null,
-      "secondCardImageName": null,
       "nextFirstDialogueId": 10,
       "nextSecondDialogueId": 10
     },
