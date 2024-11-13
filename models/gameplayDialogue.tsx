@@ -9,8 +9,8 @@ class GameplayDialogue {
     nextSecondDialogueId: number;
     soundTrigger?: string | null;
     differentStage?: number | null;
-    triggerArray: string[];
-    coloredStrings: { 
+    triggerArray?: string[];
+    coloredStrings?: { 
       stringId: number; color: string; 
     }[];
   
@@ -25,8 +25,8 @@ class GameplayDialogue {
       nextSecondDialogueId: number,
       differentStage: number | null = null,
       soundTrigger: string | null,
-      triggerArray: string[],
-      coloredStrings: { stringId: number; color: string; }[]
+      triggerArray: string[] = [],
+      coloredStrings: { stringId: number; color: string; }[] = []
     ) {
       this.dialogueId = dialogueId;
       this.descriptionText = descriptionText;

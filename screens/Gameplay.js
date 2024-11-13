@@ -179,7 +179,7 @@ function Gameplay({ navigation }) {
   }
 
   function getTriggerArrays(nextDialogueId) {
-    if (getDialogue(nextDialogueId)) {
+    if (getDialogue(nextDialogueId) && (getDialogue(nextDialogueId)?.triggerArray != null)) {
       const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
       dialogueTriggers.forEach(async (element) => {
         const splitedString = element.split("_");
@@ -256,7 +256,7 @@ function Gameplay({ navigation }) {
           >
             <WriteText
               text={getDialogue(actualDialogueId).descriptionText}
-              coloredStrings={getDialogue(actualDialogueId).coloredStrings}
+              coloredStrings={getDialogue(actualDialogueId)?.coloredStrings}
               onPress={flipCards}
               ref={writeLetterRef}
             />

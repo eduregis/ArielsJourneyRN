@@ -12,9 +12,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"), 
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 2, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 2
       },
       {
         "dialogueId": 1,
@@ -24,9 +22,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 2, 
-        "nextSecondDialogueId": 2, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 2
       },
       {
         "dialogueId": 2,
@@ -36,9 +32,13 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 3, 
-        "nextSecondDialogueId": 3, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 3,
+        "coloredStrings": [
+        {
+          stringId: 8,
+          color: "green",
+        },
+      ]
       },
       {
         "dialogueId": 3,
@@ -48,9 +48,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 4, 
-        "nextSecondDialogueId": 4, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 4,
@@ -60,9 +58,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 5, 
-        "nextSecondDialogueId": 6, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 6
       },
       {
         "dialogueId": 5,
@@ -72,9 +68,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 6, 
-        "nextSecondDialogueId": 6, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 6
       },
       {
         "dialogueId": 6,
@@ -84,9 +78,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 7, 
-        "nextSecondDialogueId": 7, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 7
       },
       {
         "dialogueId": 7,
@@ -96,9 +88,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 8, 
-        "nextSecondDialogueId": 9, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 9
       },
       {
         "dialogueId": 8,
@@ -109,8 +99,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 9,
         "nextSecondDialogueId": 9,
-        "triggerArray": [],
-        "coloredStrings": []
+        "triggerArray": []
       },
       {
         "dialogueId": 9,
@@ -121,8 +110,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 10,
         "nextSecondDialogueId": 10,
-        "triggerArray": [],
-        "coloredStrings": []
+        "triggerArray": []
       },
       {
         "dialogueId": 10,
@@ -131,8 +119,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "secondCardText": '',
         "nextFirstDialogueId": 0,
         "nextSecondDialogueId": 0,
-        "triggerArray": [],
-        "coloredStrings": []
+        "triggerArray": []
       },
     ],
     "nextStageId": 1,
@@ -149,9 +136,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 1, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 1
       },
       {
         "dialogueId": 1,
@@ -159,9 +144,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 2, 
-        "nextSecondDialogueId": 2, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 2
       },
       {
         "dialogueId": 2,
@@ -171,9 +154,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 3, 
-        "nextSecondDialogueId": 4, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 3,
@@ -181,9 +162,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 5, 
-        "nextSecondDialogueId": 5, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 5
       },
       {
         "dialogueId": 4,
@@ -191,9 +170,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 5, 
-        "nextSecondDialogueId": 5, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 5
       },
       {
         "dialogueId": 5,
@@ -201,9 +178,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 0, 
-        "nextSecondDialogueId": 0, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 0
       },
     ],
     "nextStageId": 2,
@@ -220,9 +195,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 0, 
-        "nextSecondDialogueId": 0, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 0
       },
     ],
     "nextStageId": 3,
@@ -239,9 +212,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 1, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 1
       },
       {
         "dialogueId": 1,
@@ -251,9 +222,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 2, 
-        "nextSecondDialogueId": 3, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 3
       },
       {
         "dialogueId": 2,
@@ -261,9 +230,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 4, 
-        "nextSecondDialogueId": 4, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 3,
@@ -271,9 +238,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 1, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 1
       },
       {
         "dialogueId": 4,
@@ -283,9 +248,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 5, 
-        "nextSecondDialogueId": 6, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 6
       },
       {
         "dialogueId": 5,
@@ -293,9 +256,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 7, 
-        "nextSecondDialogueId": 7, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 7
       },
       {
         "dialogueId": 6,
@@ -303,9 +264,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 4, 
-        "nextSecondDialogueId": 4, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 4
       },
       {
         "dialogueId": 7,
@@ -313,9 +272,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 8, 
-        "nextSecondDialogueId": 8, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 8
       },
       {
         "dialogueId": 8,
@@ -323,9 +280,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": "",
         "secondCardText": "", 
         "nextFirstDialogueId": 0, 
-        "nextSecondDialogueId": 0, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 0
       },
     ],
     "nextStageId": 4,
@@ -344,9 +299,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 2, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 2
       },
       {
         "dialogueId": 1,
@@ -354,9 +307,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": '',
         "secondCardText": '', 
         "nextFirstDialogueId": 3, 
-        "nextSecondDialogueId": 3, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 3
       },
       {
         "dialogueId": 2,
@@ -364,9 +315,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": '',
         "secondCardText": '', 
         "nextFirstDialogueId": 3, 
-        "nextSecondDialogueId": 3, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 3
       },
       {
         "dialogueId": 3,
@@ -376,9 +325,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 4, 
-        "nextSecondDialogueId": 5, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 5
       },
       {
         "dialogueId": 4,
@@ -386,9 +333,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": '',
         "secondCardText": '', 
         "nextFirstDialogueId": 0, 
-        "nextSecondDialogueId": 0, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 0
       },
       {
         "dialogueId": 5,
@@ -396,9 +341,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardText": '',
         "secondCardText": '', 
         "nextFirstDialogueId": 3, 
-        "nextSecondDialogueId": 3, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 3
       },
     ],
     "nextStageId": 5,
@@ -417,9 +360,7 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 0, 
-        "nextSecondDialogueId": 2, 
-        "triggerArray": [],
-        "coloredStrings": []
+        "nextSecondDialogueId": 2
       },
     ],
     "nextStageId": 6,
