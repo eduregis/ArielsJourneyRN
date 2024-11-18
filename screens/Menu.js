@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import store from "../store/redux/store";
 
 function MenuScreen({ navigation }) {
-  const [state, setState] = useState(0);
+  const [stage, setStage] = useState(0);
   const [dialogue, setDialogue] = useState(0);
   const asyncStorageHook = useAsyncStorage();
 
@@ -38,7 +38,7 @@ function MenuScreen({ navigation }) {
   }
 
   async function getData() {
-    setState(await asyncStorageHook.getStorageHandler("@stage"));
+    setStage(await asyncStorageHook.getStorageHandler("@stage"));
     setDialogue(await asyncStorageHook.getStorageHandler("@dialogue"));
 
     var build = await asyncStorageHook.getStorageHandler("@firstBuild")
@@ -69,7 +69,6 @@ function MenuScreen({ navigation }) {
 
   return (
     <>
-      <CustomNavigationBar title="Menu" hideBackButton={true} />
       <View style={styles.menuContainer}>
         <ScrollView horizontal={true}>
           <MenuCard
@@ -85,7 +84,7 @@ function MenuScreen({ navigation }) {
             coverImage={require("../assets/images/Ariel_menu_card_archetypes.png")}
           />
           <MenuCard
-            title={state == 0 && dialogue == 0 ? "Novo Jogo" : "Continuar"}
+            title={stage == 0 && dialogue == 0 ? "Novo Jogo" : "Continuar"}
             menuHandler={goToNewGame}
             card={styles.mainCard}
             coverImage={require("../assets/images/Ariel_menu_card_gameplay.png")}
@@ -113,7 +112,10 @@ export default MenuScreen;
 const styles = StyleSheet.create({
   menuContainer: {
     flex: 1,
-    paddingTop: 20,
+    top: 70,
+    left: 0,
+    right: 0,
+    bottom: 0,
     alignItems: "center",
     justifyContent: "center",
   },

@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_STAGES } from "../models/gameplayStages";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
-  max,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
+  useDerivedValue
 } from "react-native-reanimated";
 import WriteText from "../components/WriteText";
 import SoundManager from "../components/SoundManager";
@@ -31,16 +31,15 @@ function Gameplay({ navigation }) {
   const translate = useSharedValue(0);
 
   // MARK: - Animated Styles
+  const translateValue = useDerivedValue(() => {
+    return interpolate(translate.value, [0, 1, 2], [-500, 0, 500]);
+  });
+
   const translateAnimatedStyles = useAnimatedStyle(() => {
-    const translateValue = interpolate(
-      translate.value,
-      [0, 1, 2],
-      [-500, 0, 500]
-    );
     return {
       transform: [
         {
-          translateY: withTiming(translateValue, { duration: 500 }),
+          translateY: withTiming(translateValue.value, { duration: 500 }),
         },
       ],
     };
@@ -282,7 +281,7 @@ function Gameplay({ navigation }) {
         source={background}
         style={styles.container}
       >
-        <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
+        <CustomNavigationBar title="" hideBkg={true} hideSettings={true} backHandler={backToMenu} />
         <SoundManager
           soundPath={require("../assets/sounds/Ariel_ambience_01.mp3")}
           ref={soundAmbienceRef}

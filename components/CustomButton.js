@@ -2,11 +2,13 @@ import { Pressable, StyleSheet, Text, ImageBackground } from "react-native";
 import { Colors, Constants } from "../constants/constants";
 import React from "react";
 
-function CustomButton({ title, onPress }) {
+function CustomButton({ title, disabled, onPress }) {
   return (
     <Pressable
-      onPress={onPress}
-      style={({ pressed }) => pressed && styles.pressed}
+      onPress={!disabled ? onPress : null}
+      style={({ pressed }) => [
+        disabled && styles.pressed, 
+        pressed && styles.pressed]}
     >
       <ImageBackground
         source={require("../assets/ui/Ariel_menu_card_name.png")}
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.background500,
-    fontSize: Constants.mediumFontSize,
+    fontSize: Constants.largeFontSize,
     fontFamily: "macondo-regular",
     textAlign: "center",
   },
