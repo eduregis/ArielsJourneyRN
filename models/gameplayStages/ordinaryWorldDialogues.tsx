@@ -504,9 +504,61 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
         "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
         "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 1, 
+        "nextSecondDialogueId": 3
+      },
+      {
+        "dialogueId": 1,
+        "descriptionText": '“Foi ótimo! Daqui a pouco ele não vai mais ter o que me ensinar!” – Ariel exclama com confiança, e Henry sorri, fazendo sons de uma multidão vibrando. “Ariel! Ariel! Ariel!”\n\nHenry: "É mesmo? Vou ficar de olho – parece que você vai ser a melhor guarda que esse reino já viu."\n\nO orgulho toma conta da voz de Henry, e por um instante, o cansaço de Ariel desaparece, substituído por determinação.',
+        "nextFirstDialogueId": 2, 
         "nextSecondDialogueId": 2
       },
+      {
+        "dialogueId": 2,
+        "descriptionText": 'Ariel: "Ah, e o treinador disse que já passou da hora de você começar a treinar também."\n\nHenry ri, um pouco constrangido. “Haha, ele sabe que eu não levo jeito pra luta como você…”\n\nAriel: "Não se preocupe, maninho. Eu vou te proteger!" Ariel sorri, se posicionando em uma postura defensiva de brincadeira. Henry ri, mas logo o sorriso se torna um pouco mais sério.\n\nHenry: "Mesmo assim… as coisas têm sido difíceis lá fora, Ariel. Eu só quero ter certeza de que você também estará segura.”\n\nApós uma pausa, Henry lança um olhar para um canto mais escondido da forja, como se lembrasse de algo importante.',
+        "nextFirstDialogueId": 3, 
+        "nextSecondDialogueId": 3
+      },
+      {
+        "dialogueId": 3,
+        "descriptionText": 'Henry: "Falando em te proteger... achei que já estava na hora de uma surpresa."\n\nCom um movimento rápido, Henry alcança algo nas sombras e ergue uma espada recém-forjada. A lâmina brilha na luz do fim da tarde, mas é o cabo que chama a atenção de Ariel. Entalhado com um detalhe delicado, o punho é moldado no formato de uma Flor-de-Mandacaru – uma flor que desabrocha sob o sol intenso, assim como Ariel cresceu e se fortaleceu através do treinamento.',
+        "firstCardText": '“Ela é maravilhosa…”',
+        "secondCardText": '“Nossa… Muito obrigada!”', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 4, 
+        "nextSecondDialogueId": 4
+      },
+      {
+        "dialogueId": 4,
+        "descriptionText": 'Henry sorri, satisfeito com a reação dela.\n\nHenry: "Essa flor sempre foi a sua favorita, lembra? Forte, brilhante… assim como você."\n\nHá um momento de silêncio entre os dois enquanto Ariel percebe o cuidado por trás do design, o Mandacaru simbolizando força, mesmo nas condições mais difíceis – muito parecido com sua própria jornada.\n\nHenry: "Use com sabedoria. E não se esqueça – não é só a espada que te torna forte."\n\nAriel acena, enquanto um novo senso de orgulho e responsabilidade toma conta dela ao segurar o punho da espada.\n\nHenry (sorrindo): “Agora, vá tomar banho. Vou só terminar esse escudo e preparar o jantar. Você vai precisar de energia para amanhã.”\n\nAo se afastar, Ariel escuta o som rítmico do martelo de Henry ecoando pela forja, moldando o novo escudo – e a esperança compartilhada dos dois para os dias que virão.',
+        "nextFirstDialogueId": 5, 
+        "nextSecondDialogueId": 5
+      },
+      {
+        "dialogueId": 5,
+        "descriptionText": 'Após alguns minutos, Ariel escuta um som abafado, seguido pelo silêncio repentino. As marteladas de Henry, que até então preenchiam o ar, cessam abruptamente. Uma sensação de inquietação cresce em seu peito, e sem pensar duas vezes, ela corre em direção à forja.\n\nAo chegar, Ariel se depara apenas com a forja ainda acesa, o calor das chamas e o ambiente deserto. Henry não está lá, e seu coração começa a bater mais rápido. Ela se pergunta onde ele poderia estar, deixando tudo assim, inacabado.',
+        "firstCardText": 'Gritar pelo irmão e procurá-lo ao redor.',
+        "secondCardText": 'Respirar fundo e ouvir atentamente ao redor.', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 6, 
+        "nextSecondDialogueId": 7
+      },
+      {
+        "dialogueId": 6,
+        "descriptionText": 'Ariel sente o pânico crescendo e, sem conseguir se conter, começa a chamar o nome de Henry. "Henry! Onde você está?!" Sua voz ecoa na quietude, mas não obtém resposta. Determinada, ela corre para a borda da floresta, vasculhando cada canto com os olhos. Ao longe, ela nota uma sombra movendo-se rapidamente entre as árvores. Com uma onda de determinação, Ariel se lança em perseguição, sua mente focada em encontrar seu irmão – ou entender o que está acontecendo.',
+        "nextFirstDialogueId": 0, 
+        "nextSecondDialogueId": 0
+      },
+      {
+        "dialogueId": 7,
+        "descriptionText": 'Ariel tenta acalmar o turbilhão de pensamentos. Ela respira fundo e se esforça para ouvir qualquer som. Ao prestar atenção, percebe um leve farfalhar vindo da direção da floresta ao lado da casa. Seu corpo se tenciona, e, sem hesitar, ela segura firme sua nova espada e avança cuidadosamente em direção ao som, determinada a encontrar respostas, mas sem alertar quem quer que esteja à espreita.',
+        "nextFirstDialogueId": 0, 
+        "nextSecondDialogueId": 0
+      },
     ],
-    "nextStageId": 0,
+    "nextStageId": 8,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_001.png")
   }
+
+  
