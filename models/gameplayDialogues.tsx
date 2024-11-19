@@ -3,6 +3,7 @@ import GameplayStage from "./gameplayStage";
 // caso precise aumentar o indice de duchbag, só chamar o parâmetro "triggerArray" com "duchbag+1", o parâmetro assim como o achievementTrigger, é opcional.
 // caso chegar num certo Dialogue implique em desbloquear um colecionável relativo a Jornada do Herói, basta colocar "herosJourney_?", com ? sendo o índice do colecionável em questão.
 // caso chegar nesse Dialogue implique em desbloquear um colecionável relativo a Arquétipos, basta colocar "archetype_?", com ? sendo o índice do colecionável em questão.
+// caso chegar nesse Dialogue implique em desbloquear uma conquista, basta colocar "achievement_?", com ? sendo o índice da conquista em questão.
 
 export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
   "stageId": 1,
@@ -17,10 +18,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"), // nome da imagem da segunda carta
       "nextFirstDialogueId": 1, // ir para o dialogue referente a este id, se selecionar o primeiro card
       "nextSecondDialogueId": 2, // ir para o dialogue referente a este id, se selecionar o segundo card
-      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
-      "soundLoop": false, // Se for um som que fique repetindo, deixar como true aqui
-      "achievementTrigger": null, // Ativar diversos triggers, colocar o nome referente nesse array
-      "triggerArray": [], // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
+      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
       "coloredStrings": [] // Se tiver alguma cor em uma palavra, colocar a cor e index da palavra aqui
     },
     {
@@ -33,23 +31,13 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "nextFirstDialogueId": 2,
       "nextSecondDialogueId": 2,
       "soundTrigger": require("../assets/sounds/Ariel_sound_dialogue001.mp3"),
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": ["archetype_1"],
-      "coloredStrings": []
+      "triggerArray": ["archetype_1"]
     },
     {
       "dialogueId": 2,
       "descriptionText": 'Ao abrir os olhos, Ariel vê que Henry, seu irmão mais velho, estava chamando da porta. Ele já estava com seu avental sujo, indicando que já estava trabalhando na forja enquanto a irmã dormia.',
-      "firstCardText": "",
-      "secondCardText": "",
-      "firstCardImageName": null,
-      "secondCardImageName": null,
       "nextFirstDialogueId": 3,
       "nextSecondDialogueId": 3,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
       "triggerArray": ["herosJourney_1"],
       "coloredStrings": [
         {
@@ -66,12 +54,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 4,
-      "nextSecondDialogueId": 4,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 4
     },
     {
       "dialogueId": 4,
@@ -81,12 +64,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 5,
-      "nextSecondDialogueId": 5,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 5
     },
     {
       "dialogueId": 5,
@@ -97,10 +75,6 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 6,
       "nextSecondDialogueId": 7,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
       "coloredStrings": [
         {
           stringId: 23,
@@ -116,12 +90,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 7,
-      "nextSecondDialogueId": 7,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 7
     },
     {
       "dialogueId": 7,
@@ -131,12 +100,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 8,
-      "nextSecondDialogueId": 8,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 8
     },
     {
       "dialogueId": 8,
@@ -146,12 +110,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 9,
-      "nextSecondDialogueId": 10,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 10
     },
     {
       "dialogueId": 9,
@@ -161,12 +120,7 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 11,
-      "nextSecondDialogueId": 11,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 11
     },
     {
       "dialogueId": 10,
@@ -176,27 +130,13 @@ export const GAMEPLAY_ORDINARYWORLD_DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 12,
-      "nextSecondDialogueId": 12,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 12
     },
     {
       "dialogueId": 11,
       "descriptionText": 'Henry assentiu, um sorriso aliviado surgindo em seu rosto. “Eu só quero que você volte para casa, e que eu possa te ouvir reclamar das aulas de combate.”\n\nOs irmãos se alimentaram enquanto conversavam sobre os mais diversos assuntos, desde as novas armas que Henry estava forjando até os rumores da guerra que chegavam até a vila.\n\n“Você viu os novos recrutas? Parecem tão inexperientes…” Ariel comentou, um fio de preocupação em sua voz.\n\n“Eles estão tentando. Cada um deles é como você, tentando fazer a diferença,” Henry respondeu, sua voz encorajadora. “Mas você precisa se lembrar que também é importante cuidar de si mesma. A guerra não é um jogo.”\n\nAriel assentiu, sabendo que ele estava certo.',
-      "firstCardText": '',
-      "secondCardText": '',
-      "firstCardImageName": null,
-      "secondCardImageName": null,
       "nextFirstDialogueId": 10,
-      "nextSecondDialogueId": 10,
-      "soundTrigger": null,
-      "soundLoop": false,
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 10
     },
   ],
   
@@ -217,10 +157,7 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"), // nome da imagem da segunda carta
       "nextFirstDialogueId": 1, // ir para o dialogue referente a este id, se selecionar o primeiro card
       "nextSecondDialogueId": 0, // ir para o dialogue referente a este id, se selecionar o segundo card
-      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui
-      "soundLoop": false, // Se for um som que fique repetindo, deixar como true aqui
-      "achievementTrigger": null, // Ativar diversos triggers, colocar o nome referente nesse array
-      "triggerArray": [], // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
+      "soundTrigger": null, // Se for ativar um som após o texto da carta aparecer por completo, colocar o nome do som aqui // Se for um som que fique repetindo, deixar como true aqui // Ativar diversos triggers, colocar o nome referente nesse array // Se tiver algum achievement para se conquistado nesse diálogo, colocar o nome dele aqui
       "coloredStrings": [] // Se tiver alguma cor em uma palavra, colocar a cor e index da palavra aqui
     },
     {
@@ -231,12 +168,7 @@ export const GAMEPLAY_CALLTOADVENTURE__DIALOGUES: GameplayStage = {
       "firstCardImageName": require("../assets/images/gameplayCards/Ariel_card_001.png"),
       "secondCardImageName": require("../assets/images/gameplayCards/Ariel_card_002.png"),
       "nextFirstDialogueId": 0, 
-      "nextSecondDialogueId": 0,
-      "soundTrigger": null,
-      "soundLoop": false, 
-      "achievementTrigger": null,
-      "triggerArray": [],
-      "coloredStrings": []
+      "nextSecondDialogueId": 0
     },
   ]
   ,

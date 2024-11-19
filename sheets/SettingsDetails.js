@@ -8,6 +8,7 @@ import CreditsCard from "../components/CreditsCard";
 
 function SettingsDetails() {
   const asyncStorageHook = useAsyncStorage();
+  const [disabledRestart, setDisabledRestart] = useState(false);
   const [ambienceVolume, setAmbienceValue] = useState(0);
   const [musicVolume, setMusicValue] = useState(0);
   const [effectVolume, setEffectValue] = useState(0);
@@ -28,6 +29,7 @@ function SettingsDetails() {
     await asyncStorageHook.setStorageHandler("@dialogue", 0);
     await asyncStorageHook.setStorageHandler("@archetype", 0);
     await asyncStorageHook.setStorageHandler("@herosJourney", 0);
+    setDisabledRestart(true);
   }
 
   async function ambienceChange(progress) {
@@ -47,6 +49,10 @@ function SettingsDetails() {
   }, []);
 
   async function getData() {
+    const stage = (await asyncStorageHook.getStorageHandler("@stage"));
+    const dialogue = (await asyncStorageHook.getStorageHandler("@dialogue"));
+    setDisabledRestart(stage == 0 && dialogue == 0);
+
     setAmbienceValue(
       await asyncStorageHook.getStorageHandler("@ambienceVolume")
     );
@@ -90,6 +96,7 @@ function SettingsDetails() {
             <View style={styles.restartButton}>
               <CustomButton
                 title={"Reiniciar Aventura"}
+                disabled={disabledRestart}
                 onPress={callResetAlert}
               />
             </View>
@@ -142,6 +149,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   restartButton: {
-    margin: 20,
+    marginBottom: 40
   },
 });

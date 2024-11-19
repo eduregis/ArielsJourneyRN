@@ -57,13 +57,20 @@ function WriteText({ text, coloredStrings, onPress }, ref) {
   }
 
   const coloringString = (index) => {
-    const element = coloredStrings.find(
-      (element) => element.stringId === index
-    );
 
-    return {
-      color: element ? element.color : Colors.background500,
-    };
+    if (coloredStrings != null) {
+      const element = coloredStrings.find(
+        (element) => element.stringId === index
+      );
+  
+      return {
+        color: element ? element.color : Colors.background500,
+      };
+    } else {
+      return {
+        color: Colors.background500,
+      };
+    }
   };
 
   // MARK: - View

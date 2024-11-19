@@ -10,7 +10,7 @@ import { Colors, Constants } from "../constants/constants";
 import { useDispatch } from "react-redux";
 import { openSettings } from "../store/redux/settingsTrigger";
 
-function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
+function CustomNavigationBar({ title, hideBkg, hideBackButton, hideSettings, backHandler }) {
   const dispatch = useDispatch();
 
   async function settingsNavigateHandler() {
@@ -35,7 +35,7 @@ function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
           style={({ pressed }) => [
             styles.backContainer,
             pressed && styles.pressed,
-            hideBackButton && styles.hideBackButton,
+            hideBackButton && styles.hideElement,
           ]}
         >
           <Image
@@ -61,6 +61,7 @@ function CustomNavigationBar({ title, hideBkg, hideBackButton, backHandler }) {
           style={({ pressed }) => [
             styles.settingsContainer,
             pressed && styles.pressed,
+            hideSettings && styles.hideElement 
           ]}
         >
           <Image
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.7,
   },
-  hideBackButton: {
+  hideElement: {
     opacity: 0,
   },
 });

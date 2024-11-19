@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { GAMEPLAY_STAGES } from "../models/gameplayStages";
 import { useAsyncStorage } from "../data/useAsyncStorage";
 import Animated, {
-  max,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
+  useDerivedValue
 } from "react-native-reanimated";
 import WriteText from "../components/WriteText";
 import SoundManager from "../components/SoundManager";
@@ -31,16 +31,15 @@ function Gameplay({ navigation }) {
   const translate = useSharedValue(0);
 
   // MARK: - Animated Styles
+  const translateValue = useDerivedValue(() => {
+    return interpolate(translate.value, [0, 1, 2], [-500, 0, 500]);
+  });
+
   const translateAnimatedStyles = useAnimatedStyle(() => {
-    const translateValue = interpolate(
-      translate.value,
-      [0, 1, 2],
-      [-500, 0, 500]
-    );
     return {
       transform: [
         {
-          translateY: withTiming(translateValue, { duration: 500 }),
+          translateY: withTiming(translateValue.value, { duration: 500 }),
         },
       ],
     };
@@ -135,7 +134,7 @@ function Gameplay({ navigation }) {
 
   function setupNextDialogue(nextDialogueId) {
     if (nextDialogueId == 0) {
-      setupNextStage()
+      setupNextStage(getDialogue(actualDialogueId)?.differentStage)
     } else {
       setTimeout(function () {
         translateCards(0);
@@ -147,12 +146,12 @@ function Gameplay({ navigation }) {
     }
   }
 
-  async function setupNextStage() {
+  async function setupNextStage(nextStageId) {
       await asyncStorageHook.setStorageHandler("@dialogue", 0);
       const stageId = await asyncStorageHook.getStorageHandler("@stage");
       var stage = GAMEPLAY_STAGES[stageId]
-      await asyncStorageHook.setStorageHandler("@stage", stage.nextStageId);
-      var newStage = GAMEPLAY_STAGES[stage.nextStageId]
+      await asyncStorageHook.setStorageHandler("@stage", nextStageId ?? stage.nextStageId);
+      var newStage = GAMEPLAY_STAGES[nextStageId ?? stage.nextStageId]
       setTimeout(function () {
         setShowDialogue(false);
         translateCards(0);
@@ -179,7 +178,7 @@ function Gameplay({ navigation }) {
   }
 
   function getTriggerArrays(nextDialogueId) {
-    if (getDialogue(nextDialogueId)) {
+    if (getDialogue(nextDialogueId) && (getDialogue(nextDialogueId)?.triggerArray != null)) {
       const dialogueTriggers = getDialogue(nextDialogueId).triggerArray;
       dialogueTriggers.forEach(async (element) => {
         const splitedString = element.split("_");
@@ -256,7 +255,7 @@ function Gameplay({ navigation }) {
           >
             <WriteText
               text={getDialogue(actualDialogueId).descriptionText}
-              coloredStrings={getDialogue(actualDialogueId).coloredStrings}
+              coloredStrings={getDialogue(actualDialogueId)?.coloredStrings}
               onPress={flipCards}
               ref={writeLetterRef}
             />
@@ -282,7 +281,7 @@ function Gameplay({ navigation }) {
         source={background}
         style={styles.container}
       >
-        <CustomNavigationBar title="" hideBkg={true} backHandler={backToMenu} />
+        <CustomNavigationBar title="" hideBkg={true} hideSettings={true} backHandler={backToMenu} />
         <SoundManager
           soundPath={require("../assets/sounds/Ariel_ambience_01.mp3")}
           ref={soundAmbienceRef}

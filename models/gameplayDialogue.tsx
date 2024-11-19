@@ -1,34 +1,32 @@
 class GameplayDialogue {
     dialogueId: number;
     descriptionText: string;
-    firstCardText: string;
-    secondCardText: string;
-    firstCardImageName: any | null;
-    secondCardImageName: any | null;
+    firstCardText?: string;
+    secondCardText?: string;
+    firstCardImageName?: any | null;
+    secondCardImageName?: any | null;
     nextFirstDialogueId: number;
     nextSecondDialogueId: number;
-    soundTrigger: string | null;
-    soundLoop: boolean;
-    achievementTrigger: string | null;
-    triggerArray: string[];
-    coloredStrings: { 
+    soundTrigger?: string | null;
+    differentStage?: number | null;
+    triggerArray?: string[];
+    coloredStrings?: { 
       stringId: number; color: string; 
     }[];
   
     constructor(
       dialogueId: number,
       descriptionText: string,
-      firstCardText: string,
-      secondCardText: string,
+      firstCardText: string = '',
+      secondCardText: string = '',
       firstCardImageName: any | null,
       secondCardImageName: any | null,
       nextFirstDialogueId: number,
       nextSecondDialogueId: number,
+      differentStage: number | null = null,
       soundTrigger: string | null,
-      soundLoop: boolean,
-      achievementTrigger: string | null,
-      triggerArray: string[],
-      coloredStrings: { stringId: number; color: string; }[]
+      triggerArray: string[] = [],
+      coloredStrings: { stringId: number; color: string; }[] = []
     ) {
       this.dialogueId = dialogueId;
       this.descriptionText = descriptionText;
@@ -39,8 +37,7 @@ class GameplayDialogue {
       this.nextFirstDialogueId = nextFirstDialogueId;
       this.nextSecondDialogueId = nextSecondDialogueId;
       this.soundTrigger = soundTrigger;
-      this.soundLoop = soundLoop;
-      this.achievementTrigger = achievementTrigger;
+      this.differentStage = differentStage;
       this.triggerArray = triggerArray;
       this.coloredStrings = coloredStrings;
     }
