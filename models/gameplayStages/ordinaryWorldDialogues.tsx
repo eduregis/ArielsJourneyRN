@@ -244,14 +244,34 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       },
       {
         "dialogueId": 7,
-        "descriptionText": 'O professor continua a atacar, e Ariel começa a perceber um padrão em seus movimentos. Quando ele ataca, seu olhar se desvia momentaneamente, criando uma oportunidade. Com essa nova percepção, ela decide esperar o momento certo.\n\nCom um golpe ágil, o professor tenta um ataque de cima, mas Ariel ergue seu escudo para bloquear, sentindo a força do impacto. Ela, então, aproveita a abertura e desvia para o lado, atacando rapidamente com sua espada na lateral do professor, pegando-o desprevenido.',
+        "descriptionText": '“Boa!” Agora é o seu momento de-',
+        "firstCardText": "Esperar e analisar",
+        "secondCardText": "Atacar", 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 8, 
-        "nextSecondDialogueId": 8
+        "nextSecondDialogueId": 9
       },
       {
         "dialogueId": 8,
-        "descriptionText": '“Excelente!” exclama seu professor, um sorriso de aprovação no rosto. “Você viu a abertura e se aproveitou dela. O combate é uma dança. Mantenha-se alerta e você sempre encontrará uma maneira de triunfar!”\n\nMotivada pelas palavras dele, Ariel se recolhe, pronta para mais, sabendo que cada sessão de treinamento a aproxima de seu sonho de se tornar uma verdadeira guardiã de Ordon.',
-        "nextFirstDialogueId": 0, 
+        "descriptionText": 'O instrutor aproveita o movimento e rapidamente atacar Ariel, mas a espada para momentos antes de acertar seu rosto.\n\nVocê hesitou, deviater aproveitado a oportunidade! Seu oponenete não lhe dará outra chance!”\n\nO professor suspira e sorri “Mas de forma geral, foi um bom treino.”',
+        "nextFirstDialogueId": 10, 
+        "nextSecondDialogueId": 10
+      },
+      {
+        "dialogueId": 9,
+        "descriptionText": 'Ariel nota qwue seu oponente abaixou a guarda! Com um empurrão do escudo, o oponente se desestabiliza e cai pra trás. \n\n“Excelente!” exclama seu professor, um sorriso de aprovação no rosto. “Você viu a abertura e se aproveitou dela. O combate é uma dança. Mantenha-se alerta e você sempre encontrará uma maneira de triunfar!”\n\nMotivada pelas palavras dele, Ariel se recolhe, pronta para mais, sabendo que cada sessão de treinamento a aproxima de seu sonho de se tornar uma verdadeira guardiã de Ordon.',
+        "nextFirstDialogueId": 10, 
+        "nextSecondDialogueId": 10
+      },
+      {
+        "dialogueId": 10,
+        "descriptionText": '“Você quer tentar outra vez do início?”',
+        "firstCardText": "Sim",
+        "secondCardText": "Não", 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 1, 
         "nextSecondDialogueId": 0
       },
     ],
@@ -353,10 +373,92 @@ export const GAMEPLAY_ORDINARYWORLD_HOUSE_DIALOGUES: GameplayStage = {
       "dialogues": [
       {
         "dialogueId": 0,
-        "descriptionText": 'Ariel se aproxima da grande torre de vigia, localizada em uma das extremidades do muro que circunda a vila de Ordon. Mesmo de longe, ela nota a silhueta familiar de Philip no alto, um olhar atento e determinado no rosto cansado. Ela acena e chama por ele.\n\nPhilip vira ao ouvir sua voz e acena de volta. “Ariel! Suba aqui, mas não posso conversar muito. O dever me chama, como sempre.”',
+        "descriptionText": 'Ariel se aproxima da grande torre de vigia, localizada em uma das extremidades do muro que circunda a vila de Ordon. Mesmo de longe, ela nota a silhueta familiar de Philip no alto, um olhar atento e determinado no rosto cansado. Ela acena e chama por ele.\n\nPhilip vira ao ouvir sua voz e acena de volta. “Ariel! Suba aqui, mas não posso conversar muito. O dever me chama, como sempre.” \n\nEla sobe os degraus da torre e logo está ao seu lado, observando o vasto campo além dos muros. O céu está tingido de um cinza melancólico, refletindo o clima da vila.',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
         "nextFirstDialogueId": 1, 
-        "nextSecondDialogueId": 1
+        "nextSecondDialogueId": 2
       },
+      {
+        "dialogueId": 1,
+        "descriptionText": 'Ariel: "Henry terminou sua nova espada. Ele disse que era o melhor trabalho que já fez.”\n\nPhilip sorri, o rosto se iluminando por um momento. “Sério? Aquele rapaz nunca falha, sempre me surpreendendo. Vou pegar essa espada assim que meu turno acabar. Eu mal posso esperar para ver o trabalho dele.”\n\nEle ri e acrescenta, mais sério: “Sabe, ele é mais do que só um amigo pra mim. A vila toda é grata ao que ele faz, Ariel. Quando tudo isso acabar… bem, quero retribuir de algum jeito.” Ele desvia o olhar, pensativo.',
+        "firstCardText": 'Perguntar sobre a Srta. Endicott',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 3, 
+        "nextSecondDialogueId": 4
+      },
+      {
+        "dialogueId": 2,
+        "descriptionText": 'Ariel: "Você mencionou que a maioria da guarda foi convocada… Como estamos lidando com isso?”\n\nPhilip suspira, visivelmente cansado. “Quase toda nossa força foi levada para o fronte, só restam alguns de nós por aqui. A responsabilidade é esmagadora.” Ele faz uma pausa, encarando o horizonte. “Os equipamentos que seu irmão faz são a nossa única linha de defesa. Henry é um dos motivos pelos quais ainda temos uma chance.”\n\nAriel responde: "Só o Henry mesmo, sempre dando tudo de si pela vila.”\n\nPhilip esboça um sorriso triste. “É… diga a ele que todos nós somos gratos. Ele merece ouvir isso.”',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 5, 
+        "nextSecondDialogueId": 6
+      },
+      {
+        "dialogueId": 3,
+        "descriptionText": 'Ariel: "Você mencionou que a maioria da guarda foi convocada… Como estamos lidando com isso?”\n\nPhilip suspira, visivelmente cansado. “Quase toda nossa força foi levada para o fronte, só restam alguns de nós por aqui. A responsabilidade é esmagadora.” Ele faz uma pausa, encarando o horizonte. “Os equipamentos que seu irmão faz são a nossa única linha de defesa. Henry é um dos motivos pelos quais ainda temos uma chance.”\n\nAriel responde: "Só o Henry mesmo, sempre dando tudo de si pela vila.”\n\nPhilip esboça um sorriso triste. “É… diga a ele que todos nós somos gratos. Ele merece ouvir isso.”',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 7, 
+        "nextSecondDialogueId": 11
+      },
+      {
+        "dialogueId": 4,
+        "descriptionText": 'Ariel: "Philip, sobre a senhora que perdeu o filho… ouvi dizer que ele ainda não voltou. Você sabe de alguma coisa?”\n\nPhilip suspira, esfregando a nuca. “Estou tentando ajudar ela faz um tempo, mas com tão poucos guardas na vila, está cada vez mais difícil. Prometi à senhora Endicott que faria o possível, mas… Ariel, honestamente, é uma promessa difícil de cumprir. É como procurar uma agulha no palheiro.”',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 8, 
+        "nextSecondDialogueId": 11
+      },
+      {
+        "dialogueId": 5,
+        "descriptionText": 'Ariel: "Henry terminou sua nova espada. Ele disse que era o melhor trabalho que já fez.”\n\nPhilip sorri, o rosto se iluminando por um momento. “Sério? Aquele rapaz nunca falha, sempre me surpreendendo. Vou pegar essa espada assim que meu turno acabar. Eu mal posso esperar para ver o trabalho dele.”\n\nEle ri e acrescenta, mais sério: “Sabe, ele é mais do que só um amigo pra mim. A vila toda é grata ao que ele faz, Ariel. Quando tudo isso acabar… bem, quero retribuir de algum jeito.” Ele desvia o olhar, pensativo.',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 9, 
+        "nextSecondDialogueId": 11
+      },
+      {
+        "dialogueId": 6,
+        "descriptionText": 'Ariel: "Philip, sobre a senhora que perdeu o filho… ouvi dizer que ele ainda não voltou. Você sabe de alguma coisa?”\n\nPhilip suspira, esfregando a nuca. “Estou tentando ajudar ela faz um tempo, mas com tão poucos guardas na vila, está cada vez mais difícil. Prometi à senhora Endicott que faria o possível, mas… Ariel, honestamente, é uma promessa difícil de cumprir. É como procurar uma agulha no palheiro.”',
+        "firstCardText": 'Conversar sobre a Espada de Henry',
+        "secondCardText": 'Perguntar sobre a guerra e a guarda', 
+        "firstCardImageName": require("../../assets/images/gameplayCards/Ariel_card_001.png"),
+        "secondCardImageName": require("../../assets/images/gameplayCards/Ariel_card_002.png"),
+        "nextFirstDialogueId": 9, 
+        "nextSecondDialogueId": 11
+      },
+      {
+        "dialogueId": 7,
+        "descriptionText": 'Ariel: "Philip, sobre a senhora que perdeu o filho… ouvi dizer que ele ainda não voltou. Você sabe de alguma coisa?”\n\nPhilip suspira, esfregando a nuca. “Estou tentando ajudar ela faz um tempo, mas com tão poucos guardas na vila, está cada vez mais difícil. Prometi à senhora Endicott que faria o possível, mas… Ariel, honestamente, é uma promessa difícil de cumprir. É como procurar uma agulha no palheiro.”',
+        "nextFirstDialogueId": 10, 
+        "nextSecondDialogueId": 10
+      },
+      {
+        "dialogueId": 8,
+        "descriptionText": 'Ariel: "Você mencionou que a maioria da guarda foi convocada… Como estamos lidando com isso?”\n\nPhilip suspira, visivelmente cansado. “Quase toda nossa força foi levada para o fronte, só restam alguns de nós por aqui. A responsabilidade é esmagadora.” Ele faz uma pausa, encarando o horizonte. “Os equipamentos que seu irmão faz são a nossa única linha de defesa. Henry é um dos motivos pelos quais ainda temos uma chance.”\n\nAriel responde: "Só o Henry mesmo, sempre dando tudo de si pela vila.”\n\nPhilip esboça um sorriso triste. “É… diga a ele que todos nós somos gratos. Ele merece ouvir isso.”',
+        "nextFirstDialogueId": 10, 
+        "nextSecondDialogueId": 10
+      },
+      {
+        "dialogueId": 9,
+        "descriptionText": 'Ariel: "Henry terminou sua nova espada. Ele disse que era o melhor trabalho que já fez.”\n\nPhilip sorri, o rosto se iluminando por um momento. “Sério? Aquele rapaz nunca falha, sempre me surpreendendo. Vou pegar essa espada assim que meu turno acabar. Eu mal posso esperar para ver o trabalho dele.”\n\nEle ri e acrescenta, mais sério: “Sabe, ele é mais do que só um amigo pra mim. A vila toda é grata ao que ele faz, Ariel. Quando tudo isso acabar… bem, quero retribuir de algum jeito.” Ele desvia o olhar, pensativo.',
+        "nextFirstDialogueId": 10, 
+        "nextSecondDialogueId": 10
+      }
     ],
     "nextStageId": 0,
     "backgroundImage": require("../../assets/ui/Ariel_gameplay_bkg_002.png")
